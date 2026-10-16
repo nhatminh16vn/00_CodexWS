@@ -1,0 +1,60 @@
+[
+    {"katakana": "キャ", "romaji": "kya", "components": ["キ", "ャ"]},
+    {"katakana": "キュ", "romaji": "kyu", "components": ["キ", "ュ"]},
+    {"katakana": "キョ", "romaji": "kyo", "components": ["キ", "ョ"]},
+    
+    {"katakana": "シャ", "romaji": "sha", "components": ["シ", "ャ"]},
+    {"katakana": "シュ", "romaji": "shu", "components": ["シ", "ュ"]},
+    {"katakana": "ショ", "romaji": "sho", "components": ["シ", "ョ"]},
+    
+    {"katakana": "チャ", "romaji": "cha", "components": ["チ", "ャ"]},
+    {"katakana": "チュ", "romaji": "chu", "components": ["チ", "ュ"]},
+    {"katakana": "チョ", "romaji": "cho", "components": ["チ", "ョ"]},
+    
+    {"katakana": "ニャ", "romaji": "nya", "components": ["ニ", "ャ"]},
+    {"katakana": "ニュ", "romaji": "nyu", "components": ["ニ", "ュ"]},
+    {"katakana": "ニョ", "romaji": "nyo", "components": ["ニ", "ョ"]},
+    
+    {"katakana": "ヒャ", "romaji": "hya", "components": ["ヒ", "ャ"]},
+    {"katakana": "ヒュ", "romaji": "hyu", "components": ["ヒ", "ュ"]},
+    {"katakana": "ヒョ", "romaji": "hyo", "components": ["ヒ", "ョ"]},
+    
+    {"katakana": "ミャ", "romaji": "mya", "components": ["ミ", "ャ"]},
+    {"katakana": "ミュ", "romaji": "myu", "components": ["ミ", "ュ"]},
+    {"katakana": "ミョ", "romaji": "myo", "components": ["ミ", "ョ"]},
+    
+    {"katakana": "リャ", "romaji": "rya", "components": ["リ", "ャ"]},
+    {"katakana": "リュ", "romaji": "ryu", "components": ["リ", "ュ"]},
+    {"katakana": "リョ", "romaji": "ryo", "components": ["リ", "ョ"]},
+    
+    {"katakana": "ギャ", "romaji": "gya", "components": ["ギ", "ャ"]},
+    {"katakana": "ギュ", "romaji": "gyu", "components": ["ギ", "ュ"]},
+    {"katakana": "ギョ", "romaji": "gyo", "components": ["ギ", "ョ"]},
+    
+    {"katakana": "ジャ", "romaji": "ja", "components": ["ジ", "ャ"]},
+    {"katakana": "ジュ", "romaji": "ju", "components": ["ジ", "ュ"]},
+    {"katakana": "ジョ", "romaji": "jo", "components": ["ジ", "ョ"]},
+    
+    {"katakana": "ビャ", "romaji": "bya", "components": ["ビ", "ャ"]},
+    {"katakana": "ビュ", "romaji": "byu", "components": ["ビ", "ュ"]},
+    {"katakana": "ビョ", "romaji": "byo", "components": ["ビ", "ョ"]},
+    
+    {"katakana": "ピャ", "romaji": "pya", "components": ["ピ", "ャ"]},
+    {"katakana": "ピュ", "romaji": "pyu", "components": ["ピ", "ュ"]},
+    {"katakana": "ピョ", "romaji": "pyo", "components": ["ピ", "ョ"]},
+    
+    {"katakana": "ウィ", "romaji": "wi", "components": ["ウ", "ィ"]},
+    {"katakana": "ウェ", "romaji": "we", "components": ["ウ", "ェ"]},
+    {"katakana": "ウォ", "romaji": "wo", "components": ["ウ", "ォ"]},
+    
+    {"katakana": "ヴァ", "romaji": "va", "components": ["ヴ", "ァ"]},
+    {"katakana": "ヴィ", "romaji": "vi", "components": ["ヴ", "ィ"]},
+    {"katakana": "ヴ", "romaji": "vu", "components": ["ウ", "゛"]},
+    {"katakana": "ヴェ", "romaji": "ve", "components": ["ヴ", "ェ"]},
+    {"katakana": "ヴォ", "romaji": "vo", "components": ["ヴ", "ォ"]},
+    
+    {"katakana": "ファ", "romaji": "fa", "components": ["フ", "ァ"]},
+    {"katakana": "フィ", "romaji": "fi", "components": ["フ", "ィ"]},
+    {"katakana": "フェ", "romaji": "fe", "components": ["フ", "ェ"]},
+    {"katakana": "フォ", "romaji": "fo", "components": ["フ", "ォ"]}
+]

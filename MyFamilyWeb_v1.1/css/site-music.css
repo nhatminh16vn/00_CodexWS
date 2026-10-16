@@ -1,0 +1,66 @@
+.site-music {
+    position: fixed;
+    right: 14px;
+    bottom: 14px;
+    z-index: 1500;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    max-width: calc(100vw - 28px);
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    color: #fff;
+    background: rgba(24, 32, 51, 0.94);
+    box-shadow: 0 8px 24px rgba(24, 32, 51, 0.25);
+    font: 600 13px/1.2 "Segoe UI", sans-serif;
+}
+
+.site-music-toggle {
+    display: grid;
+    place-items: center;
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    background: #7553e6;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.site-music-toggle:hover {
+    background: #6041c9;
+}
+
+.site-music-toggle:focus-visible,
+.site-music-volume:focus-visible {
+    outline: 2px solid #f5a8ca;
+    outline-offset: 3px;
+}
+
+.site-music-status {
+    min-width: 54px;
+}
+
+.site-music-volume {
+    width: 82px;
+    margin: 0;
+    accent-color: #f25591;
+    cursor: pointer;
+}
+
+@media (max-width: 380px) {
+    .site-music {
+        right: 8px;
+        bottom: 8px;
+        gap: 6px;
+        padding: 6px 9px;
+    }
+
+    .site-music-volume {
+        width: 62px;
+    }
+}

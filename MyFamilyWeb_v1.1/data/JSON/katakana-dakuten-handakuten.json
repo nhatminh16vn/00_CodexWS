@@ -1,0 +1,31 @@
+[
+    {"katakana": "ガ", "romaji": "ga", "base": "カ"},
+    {"katakana": "ギ", "romaji": "gi", "base": "キ"},
+    {"katakana": "グ", "romaji": "gu", "base": "ク"},
+    {"katakana": "ゲ", "romaji": "ge", "base": "ケ"},
+    {"katakana": "ゴ", "romaji": "go", "base": "コ"},
+    
+    {"katakana": "ザ", "romaji": "za", "base": "サ"},
+    {"katakana": "ジ", "romaji": "ji", "base": "シ"},
+    {"katakana": "ズ", "romaji": "zu", "base": "ス"},
+    {"katakana": "ゼ", "romaji": "ze", "base": "セ"},
+    {"katakana": "ゾ", "romaji": "zo", "base": "ソ"},
+    
+    {"katakana": "ダ", "romaji": "da", "base": "タ"},
+    {"katakana": "ヂ", "romaji": "ji", "base": "チ"},
+    {"katakana": "ヅ", "romaji": "zu", "base": "ツ"},
+    {"katakana": "デ", "romaji": "de", "base": "テ"},
+    {"katakana": "ド", "romaji": "do", "base": "ト"},
+    
+    {"katakana": "バ", "romaji": "ba", "base": "ハ"},
+    {"katakana": "ビ", "romaji": "bi", "base": "ヒ"},
+    {"katakana": "ブ", "romaji": "bu", "base": "フ"},
+    {"katakana": "ベ", "romaji": "be", "base": "ヘ"},
+    {"katakana": "ボ", "romaji": "bo", "base": "ホ"},
+    
+    {"katakana": "パ", "romaji": "pa", "base": "ハ"},
+    {"katakana": "ピ", "romaji": "pi", "base": "ヒ"},
+    {"katakana": "プ", "romaji": "pu", "base": "フ"},
+    {"katakana": "ペ", "romaji": "pe", "base": "ヘ"},
+    {"katakana": "ポ", "romaji": "po", "base": "ホ"}
+]

@@ -1,0 +1,47 @@
+        .feature-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #8fb0ee;
+        }
+
+.logo {
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.alphabet-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 10px;
+}
+
+.alphabet-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    transition: transform 0.2s;
+}
+
+.alphabet-card:hover {
+    transform: scale(1.25);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.alphabet-char {
+    font-size: 64px;
+    font-weight: bold;
+}
+.alphabet-description {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+body { min-height:100vh; background:linear-gradient(135deg,#edf8ff,#f5efff); }
+.feature-container { margin-top:48px; border-radius:24px; background:rgba(255,255,255,.84); box-shadow:0 20px 50px rgba(57,91,151,.15); }
+.alphabet-card { border:1px solid #dceafa; border-radius:12px; }.alphabet-card:hover { border-color:#75aaf2; background:#f8fbff; }
+@media (max-width:600px) { .alphabet-grid { grid-template-columns:repeat(3,1fr); } .logo { max-width:100%; height:auto; } }

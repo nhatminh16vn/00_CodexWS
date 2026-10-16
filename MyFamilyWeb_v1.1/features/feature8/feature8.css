@@ -1,0 +1,73 @@
+    body {
+        margin: 0;
+        overflow: hidden;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+    }
+    #gameCanvas {
+        display: block;
+        background-color: #222;
+        touch-action: none;
+        cursor: crosshair;
+    }
+    #score {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        color: white;
+        font-size: 20px;
+        padding: 7px 10px;
+        border-radius: 6px;
+        background: rgba(0, 0, 0, 0.72);
+        z-index: 10;
+    }
+    #difficulty {
+        position: fixed;
+        top: 56px;
+        right: 12px;
+        max-width: calc(100vw - 24px);
+        color: white;
+        font-size: 16px;
+        padding: 7px 10px;
+        border-radius: 6px;
+        background: rgba(0, 0, 0, 0.72);
+        text-align: right;
+        z-index: 10;
+    }
+    #instructions {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    #instructions label,
+    #instructions select,
+    #instructions button {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+    }
+    #instructions select,
+    #instructions button {
+        box-sizing: border-box;
+        padding: 10px;
+        border: 0;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    #instructions button {
+        color: white;
+        background: #287db5;
+        cursor: pointer;
+    }
+    #instructions button:hover {
+        background: #216894;
+    }
+    @media (max-height: 520px) {
+        #instructions { max-height: calc(100dvh - 24px); overflow-y: auto; }
+    }

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Infinite Math Platformer V8.1 (InDev)</title>
+<link rel="stylesheet" href="feature25.css">
+</head>
+<body>
+
+<canvas id="game"></canvas>
+
+<div id="hud">
+<div class="box">⭐ <span data-i18n="hudLevel">Lv</span> <span id="lv">1</span></div>
+<div class="box"><span data-i18n="hudXp">XP</span> <span id="xp">0</span>/<span id="need">100</span></div>
+<div class="box">🌍 <span id="world">1</span></div>
+<div class="box">🔄 <span id="rebirth">0</span></div>
+<div class="box">🪙 <span id="coins">0</span></div>
+<div class="box">💎 <span id="gems">0</span></div>
+<div class="box">📏 <span id="distance">0</span>m</div>
+<div class="box">🏆 <span id="score">0</span></div>
+<div class="box">⚡ <span id="power">None</span></div>
+<div class="box" id="hpWrap">❤️ <span data-i18n="hudHp">HP</span><div id="hpBarBg"><div id="hpBarFill"></div></div></div>
+<div class="box">🔑 <span id="keys">0</span></div>
+<div class="box">🎯 <span data-i18n="hudCombo">Combo</span> <span id="combo">0</span></div>
+<div class="box">🎮 <span id="elemDisplay">🔥 FIRE</span></div>
+<button onclick="pauseGame()">⏸️</button>
+<button onclick="toggleMusic()" id="musicBtn">🎵 ON</button>
+<button onclick="menu()">🏠</button>
+</div>
+
+<div id="flash"></div>
+<div id="comboPopup"></div>
+
+<div id="menu" class="screen" style="display:flex">
+<div class="panel">
+<h1>♾️ INFINITE MATH PLATFORMER</h1>
+<div class="subtitle" data-i18n="subtitle">✨ V8.1 InDev — Enhanced Edition</div>
+<div class="badge-row">
+<span class="badge">🎮 Endless Platformer</span>
+<span class="badge">👾 Enemy Variants</span>
+<span class="badge">🟨 Lucky Blocks</span>
+<span class="badge">💀 Die → Math</span>
+<span class="badge">🌍 50 Worlds</span>
+<span class="badge">👑 World Bosses</span>
+</div>
+<button onclick="start()">▶ <span data-i18n="start">START</span></button>
+<button onclick="worlds()">🌍 <span data-i18n="worlds">WORLDS</span></button>
+<button onclick="openAchievements()">🏆 <span data-i18n="achievements">ACHIEVEMENTS</span></button>
+<button onclick="openInventory()">🎒 <span data-i18n="inventory">INVENTORY</span></button>
+<button onclick="openStats()">📊 <span data-i18n="stats">STATS</span></button>
+<button onclick="openSkins()">🎨 <span data-i18n="skins">SKINS</span></button>
+<button onclick="openSlots()">💾 <span data-i18n="saveSlots">SAVE SLOTS</span></button>
+<button onclick="openSettings()">⚙️ <span data-i18n="settings">SETTINGS</span></button>
+</div>
+</div>
+
+<div id="pause" class="screen">
+<div class="panel"><h1>⏸️ <span data-i18n="pauseTitle">PAUSED</span></h1>
+<button onclick="pauseGame()">▶ <span data-i18n="resume">CONTINUE</span></button>
+<button onclick="menu()">🏠 <span data-i18n="mainMenu">MENU</span></button>
+</div>
+</div>
+
+<div id="math" class="screen">
+<div class="panel">
+<h1>💀 <span data-i18n="youDied">YOU DIED!</span></h1>
+<div id="mathType"></div>
+<div id="mathTimer"></div>
+<div id="mathTimerBarBg"><div id="mathTimerBarFill"></div></div>
+<div id="question"></div>
+<textarea id="scratchpad" placeholder="✏️ Nháp..." style="display:none;width:90%;max-width:320px;height:70px;margin:8px auto;display:block;border-radius:10px;border:3px solid #78350f;background:#fffdf5;color:#111;font-family:'Courier New',monospace;font-size:16px;padding:8px"></textarea>
+<input id="answer" type="number">
+<br><br>
+<button onclick="check()">✅ <span data-i18n="answer">ANSWER</span></button>
+<p id="msg"></p>
+</div>
+</div>
+
+<div id="rebirthBox" class="screen">
+<div class="panel">
+<h1>🔄 <span data-i18n="rebirthTitle">REBIRTH!</span></h1>
+<p>⭐ <span data-i18n="rebirthLevelReset">Level → 1</span></p>
+<p><span data-i18n="rebirthXpReset">XP → 0</span></p>
+<p>🌍 <span data-i18n="rebirthWorldSame">World stays the same</span></p>
+<p>💪 <span data-i18n="rebirthXpBoost">XP +25%</span></p>
+<button onclick="rebirthNow()">🔄 <span data-i18n="rebirthBtn">REBIRTH</span></button>
+</div>
+</div>
+
+<div id="info" class="screen">
+<div class="panel">
+<h2 id="infoTitle"></h2>
+<div id="infoBody"></div>
+<button onclick="closeInfo()"><span data-i18n="close">CLOSE</span></button>
+</div>
+</div>
+
+<div id="stats" class="screen">
+<div class="panel"><h1>📊 STATISTICS</h1>
+<div id="statsBody" style="text-align:left"></div>
+<button onclick="closeScreen('stats')"><span data-i18n="close">CLOSE</span></button></div>
+</div>
+
+<div id="skinScreen" class="screen">
+<div class="panel"><h1>🎨 SKINS</h1>
+<div id="skinBody" class="grid"></div>
+<button onclick="closeScreen('skinScreen')"><span data-i18n="close">CLOSE</span></button></div>
+</div>
+
+<div id="slotScreen" class="screen">
+<div class="panel"><h1>💾 SAVE SLOTS</h1>
+<div id="slotBody"></div>
+<button onclick="closeScreen('slotScreen')"><span data-i18n="close">CLOSE</span></button></div>
+</div>
+
+<div id="settingsScreen" class="screen">
+<div class="panel"><h1>⚙️ <span data-i18n="settings">SETTINGS</span></h1>
+
+<div class="item" style="margin-bottom:12px">
+🌐 <b>Language</b><br>
+<select id="langSelect" onchange="setLanguage(this.value)" style="width:100%;padding:8px;border-radius:8px;margin-top:6px"></select>
+</div>
+
+<button id="settingsMusicBtn" onclick="toggleMusic()">🎵 Music: ON</button>
+<button id="settingsSfxBtn" onclick="toggleSfx()">🔊 Sound Effects: ON</button>
+
+<div class="grid" style="text-align:left;margin-top:14px">
+<div class="item">
+⌨️ <b><span data-i18n="controlsKeyboard">KEYBOARD CONTROLS</span></b><br>
+◀ ▶ / A D — Move<br>
+▲ / W / Space — Jump<br>
+Shift — Dash<br>
+R (hold) — Sprint<br>
+F — Attack<br>
+Q — Cycle Element<br>
+Esc — Pause
+</div>
+<div class="item">
+📱 <b><span data-i18n="controlsTouch">TOUCH CONTROLS</span></b><br>
+◀ ▶ — Move<br>
+⬆ — Jump<br>
+💥 — Attack<br>
+💨 — Dash<br>
+🏃 — Sprint (hold)<br>
+🔥/❄️/⚡ — Cycle Element
+</div>
+</div>
+
+<button onclick="closeScreen('settingsScreen')"><span data-i18n="close">CLOSE</span></button></div>
+</div>
+
+<div id="touch">
+<div>
+<button class="touch" id="left">◀</button>
+<button class="touch" id="right">▶</button>
+</div>
+<button class="touch" id="jump">⬆</button>
+</div>
+
+<div id="touch2">
+<button class="touch2" id="elementBtn">🔥</button>
+<button class="touch2" id="attackBtn">💥</button>
+<button class="touch2" id="dashBtn">💨</button>
+<button class="touch2" id="sprintBtn">🏃</button>
+</div>
+<script src="feature25.js"></script>
+</body>
+</html>

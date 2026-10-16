@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator with ± Button</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="feature5.css">
+</head>
+
+<body>
+    <a href="../../index.html" class="home-link">Trang chủ</a>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <!-- Row 1 -->
+            <button class="clear" onclick="clearDisplay()">AC</button>
+            <button class="advanced" onclick="percentage()">%</button>
+            <button class="advanced" onclick="squareRoot()">√</button>
+            <button onclick="backspace()">⌫</button>
+
+            <!-- Row 2 -->
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button class="operator" onclick="appendToDisplay('/')">÷</button>
+
+            <!-- Row 3 -->
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button class="operator" onclick="appendToDisplay('*')">×</button>
+
+            <!-- Row 4 -->
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button class="operator" onclick="appendToDisplay('-')">-</button>
+
+            <!-- Row 5 -->
+            <button class="advanced" onclick="toggleSign('±')">±</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button class="operator" onclick="appendToDisplay('+')">+</button>
+            <!-- Row 6 -->
+            <button class="equals row5" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script src="feature5.js?v=3"></script>
+    <script src="../../js/site-music.js"></script>
+</body>
+
+</html>

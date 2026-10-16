@@ -1,0 +1,45 @@
+[
+    {"character": "きゃ", "romaji": "kya", "components": ["き", "ゃ"]},
+    {"character": "きゅ", "romaji": "kyu", "components": ["き", "ゅ"]},
+    {"character": "きょ", "romaji": "kyo", "components": ["き", "ょ"]},
+    
+    {"character": "しゃ", "romaji": "sha", "components": ["し", "ゃ"]},
+    {"character": "しゅ", "romaji": "shu", "components": ["し", "ゅ"]},
+    {"character": "しょ", "romaji": "sho", "components": ["し", "ょ"]},
+    
+    {"character": "ちゃ", "romaji": "cha", "components": ["ち", "ゃ"]},
+    {"character": "ちゅ", "romaji": "chu", "components": ["ち", "ゅ"]},
+    {"character": "ちょ", "romaji": "cho", "components": ["ち", "ょ"]},
+    
+    {"character": "にゃ", "romaji": "nya", "components": ["に", "ゃ"]},
+    {"character": "にゅ", "romaji": "nyu", "components": ["に", "ゅ"]},
+    {"character": "にょ", "romaji": "nyo", "components": ["に", "ょ"]},
+    
+    {"character": "ひゃ", "romaji": "hya", "components": ["ひ", "ゃ"]},
+    {"character": "ひゅ", "romaji": "hyu", "components": ["ひ", "ゅ"]},
+    {"character": "ひょ", "romaji": "hyo", "components": ["ひ", "ょ"]},
+    
+    {"character": "みゃ", "romaji": "mya", "components": ["み", "ゃ"]},
+    {"character": "みゅ", "romaji": "myu", "components": ["み", "ゅ"]},
+    {"character": "みょ", "romaji": "myo", "components": ["み", "ょ"]},
+    
+    {"character": "りゃ", "romaji": "rya", "components": ["り", "ゃ"]},
+    {"character": "りゅ", "romaji": "ryu", "components": ["り", "ゅ"]},
+    {"character": "りょ", "romaji": "ryo", "components": ["り", "ょ"]},
+    
+    {"character": "ぎゃ", "romaji": "gya", "components": ["ぎ", "ゃ"]},
+    {"character": "ぎゅ", "romaji": "gyu", "components": ["ぎ", "ゅ"]},
+    {"character": "ぎょ", "romaji": "gyo", "components": ["ぎ", "ょ"]},
+    
+    {"character": "じゃ", "romaji": "ja", "components": ["じ", "ゃ"]},
+    {"character": "じゅ", "romaji": "ju", "components": ["じ", "ゅ"]},
+    {"character": "じょ", "romaji": "jo", "components": ["じ", "ょ"]},
+    
+    {"character": "びゃ", "romaji": "bya", "components": ["び", "ゃ"]},
+    {"character": "びゅ", "romaji": "byu", "components": ["び", "ゅ"]},
+    {"character": "びょ", "romaji": "byo", "components": ["び", "ょ"]},
+    
+    {"character": "ぴゃ", "romaji": "pya", "components": ["ぴ", "ゃ"]},
+    {"character": "ぴゅ", "romaji": "pyu", "components": ["ぴ", "ゅ"]},
+    {"character": "ぴょ", "romaji": "pyo", "components": ["ぴ", "ょ"]}
+]

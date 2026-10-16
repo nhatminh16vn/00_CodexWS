@@ -1,0 +1,42 @@
+        body {
+            font-family: 'Noto Sans JP', Arial, sans-serif;
+        }
+        .option {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .option:hover {
+            transform: scale(1.02);
+            background-color: #e0f7fa;
+        }
+        .correct {
+            background-color: #d1fae5 !important;
+            transform: scale(1.05);
+            border-color: #10b981 !important;
+        }
+        .correct::after {
+            content: '✔';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #10b981;
+            font-weight: bold;
+        }
+        .incorrect {
+            background-color: #fee2e2 !important;
+            transform: scale(1.05);
+            border-color: #ef4444 !important;
+        }
+        .incorrect::after {
+            content: '✘';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ef4444;
+            font-weight: bold;
+        }
+        .progress-bar {
+            transition: width 0.3s ease;
+        }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiragana Ball - Feature 4</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="feature4.css">
+</head>
+
+<body>
+    <a href="../../index.html" class="home-link">Trang chủ</a>
+    <div class="game-container">
+        <h1>Hiragana Ball Challenge</h1>
+
+        <div class="game-info">
+            <div class="timer">Time: <span id="time">30</span>s</div>
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="mistakes">Mistakes: <span id="mistakes">0/3</span></div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <!-- Thêm hiển thị romaji -->
+        <div class="romaji-display">Romaji: <span id="romaji"></span></div>
+
+        <div class="hiragana-board" id="hiraganaBoard"></div>
+
+        <div class="ball-container">
+            <div class="ball" id="ball" draggable="true">?</div>
+        </div>
+
+        <div class="message" id="message">Drag the ball to the matching Hiragana</div>
+    </div>
+
+    <div class="game-over" id="gameOver" style="display: none;">
+        <h2>Game Over!</h2>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <p>Level Reached: <span id="finalLevel">1</span></p>
+        <button id="restartButton">Play Again</button>
+    </div>
+
+    <!-- Liên kết đến JavaScript chính và feature -->
+    <script src="../../js/utils/helpers.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="feature4.js"></script>
+    <script src="../../js/site-music.js"></script>
+</body>
+
+</html>

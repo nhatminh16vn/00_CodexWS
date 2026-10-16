@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Game Đoán Số 🎯</title>
+    <!-- Liên kết đến CSS chính và CSS của feature -->
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="feature13.css">
+</head>
+
+<body>
+    <a href="../../index.html" class="home-link">Trang chủ</a>
+    <h1>🎯 Game Đoán Số 🎯</h1>
+    <p>Máy tính đã chọn 1 số từ 1 đến 100. Bạn đoán được không?</p>
+    <input type="number" id="guessInput" placeholder="Nhập số bạn đoán (1-100)" />
+    <br />
+    <button onclick="checkGuess()">🔍 Đoán ngay</button>
+    <div id="result"></div>
+    <div id="attempts"></div>
+
+    <!-- Liên kết đến JavaScript chính và feature -->
+    <script src="../../js/utils/helpers.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="feature13.js"></script>
+    <script src="../../js/site-music.js"></script>
+</body>
+
+</html>

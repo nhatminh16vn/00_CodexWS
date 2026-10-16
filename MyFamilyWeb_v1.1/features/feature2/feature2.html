@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Game Rắn Săn Mồi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="feature2.css">
+</head>
+<body>
+    <a href="../../index.html" class="home-link">Trang chủ</a>
+    <h2>RẮN SĂN MỒI</h2>
+    <div class="score">Điểm: <span id="scoreDisplay">0</span></div>
+    
+    <div id="game-container">
+        <canvas id="game"></canvas>
+        <div id="gameOver">
+            <h3>GAME OVER!</h3>
+            <p>Điểm của bạn: <span id="finalScore">0</span></p>
+            <p>Nhấn nút bên dưới để chơi lại</p>
+            <button onclick="restartGame()">Chơi lại</button>
+        </div>
+    </div>
+
+    <!-- Liên kết đến JavaScript chính và feature -->
+    <script src="../../js/utils/helpers.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="feature2.js"></script>
+    <script src="../../js/site-music.js"></script>
+</body>
+</html>

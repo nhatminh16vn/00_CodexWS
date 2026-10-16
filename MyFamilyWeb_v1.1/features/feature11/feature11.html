@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiragana Random Generator</title>
+    <link rel="stylesheet" href="feature11.css">
+</head>
+    <!-- Liên kết đến CSS chính và CSS của feature -->
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="feature11.css">
+</head>
+
+<body>
+    <a href="../../index.html" class="home-link">Trang chủ</a>
+    <div class="main-panel">
+        <div class="character-box">
+            <div id="main-character">?</div>
+        </div>
+        <div class="timer-box">
+            <div id="timer">00:00:00</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="generate-btn" onclick="generateNewCharacter()">Generate</button>
+        <button class="reset-btn" onclick="resetAll()">Reset</button>
+    </div>
+
+    <div class="history-panel">
+        <h2>Lịch sử xuất hiện</h2>
+        <div class="history-grid" id="historyContainer"></div>
+    </div>
+    <div class="hiragana-list">
+        <h2>Danh sách Hiragana</h2>
+        <ul id="hiraganaList">
+            <!-- Danh sách Hiragana sẽ được tạo động bằng JavaScript -->
+        </ul>
+    </div>
+    <!-- Hàm để lấy ký tự Hiragana ngẫu nhiên -->
+    <script src="feature11.js"></script>
+        <script src="../../js/site-music.js"></script>
+    </body>
+
+</html>
