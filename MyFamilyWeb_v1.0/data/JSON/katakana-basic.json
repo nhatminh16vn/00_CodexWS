@@ -1,0 +1,57 @@
+[
+    {"katakana": "ア", "romaji": "a"},
+    {"katakana": "イ", "romaji": "i"},
+    {"katakana": "ウ", "romaji": "u"},
+    {"katakana": "エ", "romaji": "e"},
+    {"katakana": "オ", "romaji": "o"},
+    
+    {"katakana": "カ", "romaji": "ka"},
+    {"katakana": "キ", "romaji": "ki"},
+    {"katakana": "ク", "romaji": "ku"},
+    {"katakana": "ケ", "romaji": "ke"},
+    {"katakana": "コ", "romaji": "ko"},
+    
+    {"katakana": "サ", "romaji": "sa"},
+    {"katakana": "シ", "romaji": "shi"},
+    {"katakana": "ス", "romaji": "su"},
+    {"katakana": "セ", "romaji": "se"},
+    {"katakana": "ソ", "romaji": "so"},
+    
+    {"katakana": "タ", "romaji": "ta"},
+    {"katakana": "チ", "romaji": "chi"},
+    {"katakana": "ツ", "romaji": "tsu"},
+    {"katakana": "テ", "romaji": "te"},
+    {"katakana": "ト", "romaji": "to"},
+    
+    {"katakana": "ナ", "romaji": "na"},
+    {"katakana": "ニ", "romaji": "ni"},
+    {"katakana": "ヌ", "romaji": "nu"},
+    {"katakana": "ネ", "romaji": "ne"},
+    {"katakana": "ノ", "romaji": "no"},
+    
+    {"katakana": "ハ", "romaji": "ha"},
+    {"katakana": "ヒ", "romaji": "hi"},
+    {"katakana": "フ", "romaji": "fu"},
+    {"katakana": "ヘ", "romaji": "he"},
+    {"katakana": "ホ", "romaji": "ho"},
+    
+    {"katakana": "マ", "romaji": "ma"},
+    {"katakana": "ミ", "romaji": "mi"},
+    {"katakana": "ム", "romaji": "mu"},
+    {"katakana": "メ", "romaji": "me"},
+    {"katakana": "モ", "romaji": "mo"},
+    
+    {"katakana": "ヤ", "romaji": "ya"},
+    {"katakana": "ユ", "romaji": "yu"},
+    {"katakana": "ヨ", "romaji": "yo"},
+    
+    {"katakana": "ラ", "romaji": "ra"},
+    {"katakana": "リ", "romaji": "ri"},
+    {"katakana": "ル", "romaji": "ru"},
+    {"katakana": "レ", "romaji": "re"},
+    {"katakana": "ロ", "romaji": "ro"},
+    
+    {"katakana": "ワ", "romaji": "wa"},
+    {"katakana": "ヲ", "romaji": "wo"},
+    {"katakana": "ン", "romaji": "n"}
+]

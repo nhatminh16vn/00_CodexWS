@@ -1,0 +1,31 @@
+[
+    {"character": "が", "romaji": "ga", "base": "か"},
+    {"character": "ぎ", "romaji": "gi", "base": "き"},
+    {"character": "ぐ", "romaji": "gu", "base": "く"},
+    {"character": "げ", "romaji": "ge", "base": "け"},
+    {"character": "ご", "romaji": "go", "base": "こ"},
+    
+    {"character": "ざ", "romaji": "za", "base": "さ"},
+    {"character": "じ", "romaji": "ji", "base": "し"},
+    {"character": "ず", "romaji": "zu", "base": "す"},
+    {"character": "ぜ", "romaji": "ze", "base": "せ"},
+    {"character": "ぞ", "romaji": "zo", "base": "そ"},
+    
+    {"character": "だ", "romaji": "da", "base": "た"},
+    {"character": "ぢ", "romaji": "ji", "base": "ち"},
+    {"character": "づ", "romaji": "zu", "base": "つ"},
+    {"character": "で", "romaji": "de", "base": "て"},
+    {"character": "ど", "romaji": "do", "base": "と"},
+    
+    {"character": "ば", "romaji": "ba", "base": "は"},
+    {"character": "び", "romaji": "bi", "base": "ひ"},
+    {"character": "ぶ", "romaji": "bu", "base": "ふ"},
+    {"character": "べ", "romaji": "be", "base": "へ"},
+    {"character": "ぼ", "romaji": "bo", "base": "ほ"},
+    
+    {"character": "ぱ", "romaji": "pa", "base": "は"},
+    {"character": "ぴ", "romaji": "pi", "base": "ひ"},
+    {"character": "ぷ", "romaji": "pu", "base": "ふ"},
+    {"character": "ぺ", "romaji": "pe", "base": "へ"},
+    {"character": "ぽ", "romaji": "po", "base": "ほ"}
+]

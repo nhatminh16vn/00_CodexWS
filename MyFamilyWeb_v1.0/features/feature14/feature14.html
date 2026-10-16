@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>INSANE Block Breaker - IMPOSSIBLE MODE</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="feature14.css?v=2">
+</head>
+
+<body>
+    <a href="../../index.html" class="home-link">Trang chủ</a>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="gameUI">
+            Score: <span id="score">0</span> |
+            Lives: <span id="lives">3</span> |
+            Level: <span id="level">1</span> |
+            Time: <span id="time">300</span>s
+        </div>
+
+        <div id="comboDisplay">Combo: <span id="comboCount">0</span>x</div>
+        <div id="timerWarning">TIME CRITICAL!</div>
+
+        <div id="startScreen">
+            <h1 style="font-size: 48px; text-shadow: 0 0 20px #f00;">IMPOSSIBLE MODE</h1>
+            <p>Only for the most skilled players</p>
+            <p>Move the mouse or drag a finger to steer the paddle.</p>
+            <p class="warning">Warning: Ultra extreme difficulty!</p>
+            <p class="impossible">THIS IS PRACTICALLY IMPOSSIBLE</p>
+            <button id="startButton">ACCEPT CHALLENGE (Are you sure?)</button>
+        </div>
+
+        <div id="gameOverScreen">
+            <h1 style="font-size: 48px; text-shadow: 0 0 20px #f00; color: #f00;">GAME OVER</h1>
+            <p id="finalScore" style="font-size: 24px; margin: 20px 0;"></p>
+            <p id="finalLevel" style="font-size: 24px; margin-bottom: 30px;"></p>
+            <button id="restartButton"
+                style="padding: 15px 30px; font-size: 24px; background: linear-gradient(to right, #f00, #900); color: white; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s;">TRY
+                AGAIN (IF YOU DARE)</button>
+        </div>
+    </div>
+
+    <audio id="brickHitSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3"
+        preload="auto"></audio>
+    <audio id="powerUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-unlock-game-notification-253.mp3"
+        preload="auto"></audio>
+    <audio id="lifeLostSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-retro-game-over-213.mp3"
+        preload="auto"></audio>
+    <audio id="levelUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3"
+        preload="auto"></audio>
+    <audio id="gameOverSound" src="https://assets.mixkit.co/sfx/preview/mixkit-retro-game-over-213.mp3"
+        preload="auto"></audio>
+    <audio id="comboSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3"
+        preload="auto"></audio>
+    <audio id="timerSound" src="https://assets.mixkit.co/sfx/preview/mixkit-timer-countdown-204.mp3"
+        preload="auto"></audio>
+    <audio id="startSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-start-213.mp3"
+        preload="auto"></audio>
+
+    <!-- Liên kết đến JavaScript chính và feature -->
+    <script src="../../js/utils/helpers.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="feature14.js?v=2"></script>
+    <script src="../../js/site-music.js"></script>
+</body>
+
+</html>

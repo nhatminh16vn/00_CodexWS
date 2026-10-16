@@ -1,0 +1,24 @@
+.home-link {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    z-index: 1000;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px 10px 12px;
+    border: 1px solid rgba(255,255,255,.72);
+    border-radius: 999px;
+    color: #252744;
+    background: rgba(255,255,255,.88);
+    box-shadow: 0 10px 26px rgba(22,27,62,.2);
+    backdrop-filter: blur(10px);
+    font: 800 14px/1 "Trebuchet MS", "Arial Rounded MT Bold", Arial, sans-serif;
+    letter-spacing: -.01em;
+    text-decoration: none;
+    transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.home-link::before { content: '←'; display:grid; place-items:center; width:22px; height:22px; border-radius:50%; color:#fff; background:linear-gradient(135deg,#6548e8,#e74985); font-size:16px; line-height:1; }
+.home-link:hover { color:#382ba2; background:#fff; box-shadow:0 14px 30px rgba(22,27,62,.26); transform:translateY(-2px); }
+.home-link:focus-visible { outline:3px solid #f6b3d1; outline-offset:3px; }
+@media (max-width:600px) { .home-link { top:12px; left:12px; padding:9px 12px 9px 10px; font-size:13px; } }

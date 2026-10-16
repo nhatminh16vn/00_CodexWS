@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    text-align: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+canvas {
+    background: #000000;
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #001284;
+}
+
+h2 {
+    color: rgb(4, 0, 128);
+    margin-top: 20px;
+}
+
+.score {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+/* Mobile First Styles */
+#game {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    touch-action: none;
+}
+
+#mobile-controls {
+    display: none;
+    /* Sẽ được hiển thị bởi JS khi cần */
+}
+
+/* Hiển thị trên mobile */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .score {
+        font-size: 1.2rem;
+    }
+
+    #gameOver {
+        width: 90%;
+        left: 5%;
+    }
+}
+
+/* Ngăn zoom trên mobile */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+canvas {
+    touch-action: none;
+}
+#mobile-controls button {
+    font-weight: bold;
+}
+
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    z-index: 100;
+    text-align: center;
+    width: 300px;
+}
+
+#gameOver h3 {
+    color: red;
+    font-size: 30px;
+    margin-top: 0;
+}
+
+#gameOver button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+#gameOver button:hover {
+    background-color: #45a049;
+}
+#mobile-controls {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+}
+
+#mobile-controls button {
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 20px;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+body { background: radial-gradient(circle at top, #243b73, #10182f 72%); color: #f8fbff; }
+#game { border: 5px solid #7cdaff; border-radius: 18px; box-shadow: 0 0 0 8px rgba(124,218,255,.12), 0 20px 45px rgba(0,0,0,.35); background: #101a33; }
+.score { color: #fff; padding: 8px 16px; display: inline-block; border-radius: 999px; background: rgba(255,255,255,.12); }

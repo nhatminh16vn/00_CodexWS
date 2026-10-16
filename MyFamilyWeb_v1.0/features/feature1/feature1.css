@@ -1,0 +1,48 @@
+/* feature1.css */
+.feature-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #bdee8f;
+}
+
+.logo {
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.hiragana-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 10px;
+}
+
+.hiragana-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    transition: transform 0.2s;
+}
+
+.hiragana-card:hover {
+    transform: scale(1.25);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.hiragana-char {
+    /*font-size: 64px;*/
+    font-size: clamp(18px, 3vw, 64px);
+    font-weight: bold;
+}
+
+.romaji {
+    font-size: 14px;
+    color: #666;
+}
+
+body { min-height:100vh; background:linear-gradient(135deg,#fff4fb,#eef4ff); }
+.feature-container { margin-top:48px; border-radius:24px; background:rgba(255,255,255,.82); box-shadow:0 20px 50px rgba(87,73,151,.13); }
+.hiragana-card { border:1px solid #eee7fb; border-radius:12px; }.hiragana-card:hover { border-color:#b49bff; background:#fbf9ff; }
