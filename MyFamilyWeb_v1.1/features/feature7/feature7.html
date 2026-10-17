@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Bấm Nút Nhanh</title>
+    <title data-feature-i18n="clickTitle">Game Bấm Nút Nhanh</title>
     <link rel="stylesheet" href="feature7.css">
     <link rel="stylesheet" href="../../css/home-link.css">
 </head>
@@ -12,19 +12,20 @@
 <body>
     <a href="../../index.html" class="home-link">Trang chủ</a>
     <div class="game-container">
-        <h1>Game Bấm Nút Nhanh</h1>
-        <p>Bấm vào nút đỏ càng nhiều càng tốt trong 10 giây!</p>
+        <h1 data-feature-i18n="clickTitle">Game Bấm Nút Nhanh</h1>
+        <p data-feature-i18n="clickDesc">Bấm vào nút đỏ càng nhiều càng tốt trong 10 giây!</p>
 
-        <div class="target" id="target">Bắt Đầu</div>
+        <div class="target" id="target" data-feature-i18n="clickStart">Bắt Đầu</div>
 
         <div class="stats">
-            <p>Số lần bấm: <span id="clicks">0</span></p>
-            <p>Thời gian còn lại: <span id="time">10</span>s</p>
-            <p>Điểm số: <span id="score">0</span></p>
+            <p><span data-feature-i18n="clickCount">Số lần bấm</span>: <span id="clicks">0</span></p>
+            <p><span data-feature-i18n="timeLeft">Thời gian còn lại</span>: <span id="time">10</span>s</p>
+            <p><span data-feature-i18n="clickScore">Điểm số</span>: <span id="score">0</span></p>
         </div>
 
-        <button id="reset">Chơi Lại</button>
+        <button id="reset" data-feature-i18n="reset">Chơi Lại</button>
     </div>
+    <script src="../../js/utils/feature-i18n.js"></script>
     <script src="feature7.js"></script>
     <script src="../../js/site-music.js"></script>
 </body>

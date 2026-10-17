@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Ball Game</title>
+    <title data-feature-i18n="ballTitle">Ball Game</title>
     <!-- Liên kết đến CSS chính và CSS của feature -->
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="feature8.css">
@@ -13,27 +13,28 @@
 <body>
     <a href="../../index.html" class="home-link">Trang chủ</a>
     <canvas id="gameCanvas"></canvas>
-    <div id="score">Score: 0</div>
-    <div id="difficulty">Tier 1: 100% very easy</div>
+    <div id="score"><span data-feature-i18n="score">Score</span>: 0</div>
+    <div id="difficulty"><span data-feature-i18n="tier">Tier</span> 1: 100% <span data-feature-i18n="veryEasy">very easy</span></div>
     <div id="instructions">
-        <h2 id="game-title">Ball Game</h2>
-        <p id="game-message">Move the mouse or drag your finger to guide the ball. Arrow keys or WASD also work.</p>
-        <label for="tier-select">Choose a tier</label>
+        <h2 id="game-title" data-feature-i18n="ballTitle">Ball Game</h2>
+        <p id="game-message" data-feature-i18n="ballInstructions">Move the mouse or drag your finger to guide the ball. Arrow keys or WASD also work.</p>
+        <label for="tier-select" data-feature-i18n="chooseTier">Choose a tier</label>
         <select id="tier-select">
-            <option value="1">1 - Very easy</option>
-            <option value="2">2 - Easy</option>
-            <option value="3">3 - 50% easy, 50% medium</option>
-            <option value="4">4 - 25% easy, 75% medium</option>
-            <option value="5">5 - Medium</option>
-            <option value="6">6 - 50% medium, 50% hard</option>
-            <option value="7">7 - 25% medium, 75% hard</option>
-            <option value="8">8 - Hard</option>
-            <option value="9">9 - 50% hard, 50% expert</option>
-            <option value="10">10 - Expert</option>
+            <option value="1" data-feature-i18n="tierOpt1">1 - Very easy</option>
+            <option value="2" data-feature-i18n="tierOpt2">2 - Easy</option>
+            <option value="3" data-feature-i18n="tierOpt3">3 - 50% easy, 50% medium</option>
+            <option value="4" data-feature-i18n="tierOpt4">4 - 25% easy, 75% medium</option>
+            <option value="5" data-feature-i18n="tierOpt5">5 - Medium</option>
+            <option value="6" data-feature-i18n="tierOpt6">6 - 50% medium, 50% hard</option>
+            <option value="7" data-feature-i18n="tierOpt7">7 - 25% medium, 75% hard</option>
+            <option value="8" data-feature-i18n="tierOpt8">8 - Hard</option>
+            <option value="9" data-feature-i18n="tierOpt9">9 - 50% hard, 50% expert</option>
+            <option value="10" data-feature-i18n="tierOpt10">10 - Expert</option>
         </select>
-        <p id="tier-description" aria-live="polite">Tier 1: 100% very easy obstacles.</p>
-        <button id="start-button" type="button">Start game</button>
+        <p id="tier-description" aria-live="polite"></p>
+        <button id="start-button" type="button" data-feature-i18n="startGame">Start game</button>
     </div>
+    <script src="../../js/utils/feature-i18n.js"></script>
     <script src="feature8.js?v=2"></script>
     <script src="../../js/site-music.js"></script>
 </body>

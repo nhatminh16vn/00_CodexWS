@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiragana Chart</title>
+    <title data-feature-i18n="alphabetTitle">Alphabet Chart</title>
     <!-- Liên kết đến CSS chính và CSS của feature -->
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="feature10.css">
@@ -14,8 +14,8 @@
     <a href="../../index.html" class="home-link">Trang chủ</a>
     <div class="feature-container">
         <header>
-            <img src="../../data/icons/Alphabet logo.jpg" alt="Logo" class="logo">
-            <h1>Bảng chữ cái Alphabet</h1>
+            <img src="../../data/icons/Alphabet logo.jpg" alt="Logo bảng chữ cái tiếng Anh" class="logo" data-feature-i18n-alt="alphabetLogoAlt">
+            <h1 data-feature-i18n="alphabetTitle">Bảng chữ cái Alphabet</h1>
         </header>
 
         <div class="alphabet-grid" id="alphabetGrid">
@@ -24,6 +24,7 @@
     </div>
 
     <!-- Liên kết đến JavaScript chính và feature -->
+    <script src="../../js/utils/feature-i18n.js"></script>
     <script src="../../js/utils/helpers.js"></script>
     <script src="../../js/app.js"></script>
     <script src="feature10.js"></script>

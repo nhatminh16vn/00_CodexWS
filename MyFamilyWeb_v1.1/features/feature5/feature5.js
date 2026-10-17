@@ -6,7 +6,7 @@
         }
         
         function appendToDisplay(value) {
-            if (currentDisplay === 'Error') {
+            if (currentDisplay === FeatureI18n.translate('calculatorError')) {
                 currentDisplay = value === '.' ? '0.' : value;
             } else if (currentDisplay === '0' && value !== '.') {
                 currentDisplay = value;
@@ -53,7 +53,7 @@
         
         currentDisplay = result.toString();
     } catch (error) {
-        currentDisplay = "Error"; // Or "Error6" if you prefer
+        currentDisplay = FeatureI18n.translate('calculatorError');
     }
     updateDisplay();
 }
@@ -62,7 +62,7 @@
             try {
                 currentDisplay = (eval(currentDisplay) / 100).toString();
             } catch (error) {
-                currentDisplay = 'Error';
+                currentDisplay = FeatureI18n.translate('calculatorError');
             }
             updateDisplay();
         }
@@ -71,7 +71,7 @@
             try {
                 currentDisplay = Math.sqrt(eval(currentDisplay)).toString();
             } catch (error) {
-                currentDisplay = 'Error';
+                currentDisplay = FeatureI18n.translate('calculatorError');
             }
             updateDisplay();
         }

@@ -25,10 +25,10 @@ function nextQuestion() {
 function finishGame() {
     running = false;
     clearInterval(clockTimer);
-    questionDisplay.textContent = 'Hết giờ!';
-    status.textContent = `Bạn trả lời đúng ${score} câu.`;
+    questionDisplay.textContent = FeatureI18n.translate('gameOver');
+    status.textContent = FeatureI18n.translate('mathResult', { n: score });
     window.playGameSound('win');
-    document.getElementById('start').textContent = 'Chơi lại';
+    document.getElementById('start').textContent = FeatureI18n.translate('replay');
 }
 
 document.getElementById('answer-form').addEventListener('submit', (event) => {
@@ -37,10 +37,10 @@ document.getElementById('answer-form').addEventListener('submit', (event) => {
     if (Number(answerInput.value) === answer) {
         score++;
         scoreDisplay.textContent = score;
-        status.textContent = 'Đúng rồi!';
+        status.textContent = FeatureI18n.translate('mathCorrect');
         window.playGameSound('success');
     } else {
-        status.textContent = 'Chưa đúng, thử câu tiếp theo nhé.';
+        status.textContent = FeatureI18n.translate('mathWrong');
         window.playGameSound('miss');
     }
     nextQuestion();
@@ -53,8 +53,8 @@ document.getElementById('start').addEventListener('click', () => {
     timeLeft = 60;
     scoreDisplay.textContent = score;
     timeDisplay.textContent = timeLeft;
-    status.textContent = 'Tính nhanh nào!';
-    document.getElementById('start').textContent = 'Chơi lại';
+    status.textContent = FeatureI18n.translate('mathGo');
+    document.getElementById('start').textContent = FeatureI18n.translate('replay');
     window.playGameSound('start');
     nextQuestion();
     clockTimer = setInterval(() => {

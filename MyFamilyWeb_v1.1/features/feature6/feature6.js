@@ -69,7 +69,7 @@
             const userAnswer = parseInt(answerEl.value);
             
             if (isNaN(userAnswer)) {
-                resultEl.textContent = 'Vui lòng nhập số!';
+                resultEl.textContent = FeatureI18n.translate('enterNumber');
                 resultEl.className = 'result incorrect feedback';
                 return;
             }
@@ -81,7 +81,7 @@
                 const pointsEarned = currentDifficulty * 10;
                 totalPoints += pointsEarned;
                 
-                resultEl.innerHTML = `<span class="correct">Chính xác! +${pointsEarned} điểm</span>`;
+                resultEl.innerHTML = `<span class="correct">${FeatureI18n.translate('arithmeticCorrect', { n: pointsEarned })}</span>`;
                 resultEl.className = 'result correct feedback';
                 correctCount++;
                 correctEl.textContent = correctCount;
@@ -95,8 +95,8 @@
                 setTimeout(generateNewProblem, 1500);
             } else {
                 if (remainingAttempts <= 0) {
-                    resultEl.innerHTML = `<span class="incorrect">Sai rồi! Đáp án đúng là: ${correctAnswer}</span><br>
-                                        <span>Đã hết lượt thử, chuyển câu mới...</span>`;
+                    resultEl.innerHTML = `<span class="incorrect">${FeatureI18n.translate('arithmeticWrong', { n: correctAnswer })}</span><br>
+                                        <span>${FeatureI18n.translate('outOfAttempts')}</span>`;
                     resultEl.className = 'result incorrect feedback';
                     incorrectCount++;
                     incorrectEl.textContent = incorrectCount;
@@ -108,7 +108,7 @@
                     // Tự động chuyển câu mới sau 2 giây
                     setTimeout(generateNewProblem, 2000);
                 } else {
-                    resultEl.innerHTML = `<span class="incorrect">Sai rồi! Thử lại nhé (còn ${remainingAttempts} lượt)</span>`;
+                    resultEl.innerHTML = `<span class="incorrect">${FeatureI18n.translate('retryAttempts', { n: remainingAttempts })}</span>`;
                     resultEl.className = 'result incorrect feedback';
                     incorrectCount++;
                     incorrectEl.textContent = incorrectCount;

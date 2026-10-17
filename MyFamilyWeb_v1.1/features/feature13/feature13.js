@@ -7,16 +7,16 @@
       attempts++;
 
       if (guess < 1 || guess > 100 || isNaN(guess)) {
-        resultEl.textContent = "⚠️ Vui lòng nhập số từ 1 đến 100!";
+        resultEl.textContent = `⚠️ ${FeatureI18n.translate('guessInvalid')}`;
         resultEl.style.color = "#fffacd";
       } else if (guess < secretNumber) {
-        resultEl.textContent = "🔽 Số bạn đoán quá nhỏ!";
+        resultEl.textContent = `🔽 ${FeatureI18n.translate('guessLow')}`;
         resultEl.style.color = "#ffd700";
       } else if (guess > secretNumber) {
-        resultEl.textContent = "🔼 Số bạn đoán quá lớn!";
+        resultEl.textContent = `🔼 ${FeatureI18n.translate('guessHigh')}`;
         resultEl.style.color = "#ffa07a";
       } else {
-        resultEl.textContent = `🎉 Chính xác! Bạn đoán đúng sau ${attempts} lần!`;
+        resultEl.textContent = `🎉 ${FeatureI18n.translate('guessWin', { n: attempts })}`;
         resultEl.style.color = "#00ffcc";
       }
     }

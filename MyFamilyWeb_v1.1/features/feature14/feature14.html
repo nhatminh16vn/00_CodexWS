@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>INSANE Block Breaker - IMPOSSIBLE MODE</title>
+    <title data-feature-i18n="blockTitle">Impossible Block Breaker</title>
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="feature14.css?v=2">
 </head>
@@ -14,31 +14,30 @@
     <div id="gameContainer">
         <canvas id="gameCanvas" width="800" height="600"></canvas>
         <div id="gameUI">
-            Score: <span id="score">0</span> |
-            Lives: <span id="lives">3</span> |
-            Level: <span id="level">1</span> |
-            Time: <span id="time">300</span>s
+            <span data-feature-i18n="score">Score</span>: <span id="score">0</span> |
+            <span data-feature-i18n="lives">Lives</span>: <span id="lives">3</span> |
+            <span data-feature-i18n="levelLabel">Level</span>: <span id="level">1</span> |
+            <span data-feature-i18n="timeLabel">Time</span>: <span id="time">300</span>s
         </div>
 
-        <div id="comboDisplay">Combo: <span id="comboCount">0</span>x</div>
-        <div id="timerWarning">TIME CRITICAL!</div>
+        <div id="comboDisplay"><span data-feature-i18n="combo">Combo</span>: <span id="comboCount">0</span>x</div>
+        <div id="timerWarning" data-feature-i18n="timeCritical">TIME CRITICAL!</div>
 
         <div id="startScreen">
-            <h1 style="font-size: 48px; text-shadow: 0 0 20px #f00;">IMPOSSIBLE MODE</h1>
-            <p>Only for the most skilled players</p>
-            <p>Move the mouse or drag a finger to steer the paddle.</p>
-            <p class="warning">Warning: Ultra extreme difficulty!</p>
-            <p class="impossible">THIS IS PRACTICALLY IMPOSSIBLE</p>
-            <button id="startButton">ACCEPT CHALLENGE (Are you sure?)</button>
+            <h1 style="font-size: 48px; text-shadow: 0 0 20px #f00;" data-feature-i18n="impossibleMode">IMPOSSIBLE MODE</h1>
+            <p data-feature-i18n="onlySkilled">Only for the most skilled players</p>
+            <p data-feature-i18n="paddleInstructions">Move the mouse or drag a finger to steer the paddle.</p>
+            <p class="warning" data-feature-i18n="extremeWarning">Warning: Ultra extreme difficulty!</p>
+            <p class="impossible" data-feature-i18n="practicallyImpossible">THIS IS PRACTICALLY IMPOSSIBLE</p>
+            <button id="startButton" data-feature-i18n="acceptChallenge">ACCEPT CHALLENGE (Are you sure?)</button>
         </div>
 
         <div id="gameOverScreen">
-            <h1 style="font-size: 48px; text-shadow: 0 0 20px #f00; color: #f00;">GAME OVER</h1>
+            <h1 style="font-size: 48px; text-shadow: 0 0 20px #f00; color: #f00;" data-feature-i18n="gameOver">GAME OVER</h1>
             <p id="finalScore" style="font-size: 24px; margin: 20px 0;"></p>
             <p id="finalLevel" style="font-size: 24px; margin-bottom: 30px;"></p>
             <button id="restartButton"
-                style="padding: 15px 30px; font-size: 24px; background: linear-gradient(to right, #f00, #900); color: white; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s;">TRY
-                AGAIN (IF YOU DARE)</button>
+                style="padding: 15px 30px; font-size: 24px; background: linear-gradient(to right, #f00, #900); color: white; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s;" data-feature-i18n="tryAgainDare">TRY AGAIN (IF YOU DARE)</button>
         </div>
     </div>
 
@@ -60,6 +59,7 @@
         preload="auto"></audio>
 
     <!-- Liên kết đến JavaScript chính và feature -->
+    <script src="../../js/utils/feature-i18n.js"></script>
     <script src="../../js/utils/helpers.js"></script>
     <script src="../../js/app.js"></script>
     <script src="feature14.js?v=2"></script>

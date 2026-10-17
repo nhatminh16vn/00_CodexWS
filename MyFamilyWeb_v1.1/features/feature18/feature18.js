@@ -25,14 +25,14 @@ function startGame() {
     locked = false;
     movesDisplay.textContent = moves;
     pairsDisplay.textContent = matchedPairs;
-    status.textContent = 'Chọn hai thẻ để tìm một cặp giống nhau.';
+    status.textContent = FeatureI18n.translate('memoryHint');
     grid.replaceChildren();
     shuffle([...symbols, ...symbols]).forEach((symbol) => {
         const card = document.createElement('button');
         card.type = 'button';
         card.className = 'memory-card';
         card.textContent = '?';
-        card.setAttribute('aria-label', 'Thẻ chưa lật');
+        card.setAttribute('aria-label', FeatureI18n.translate('cardHidden'));
         card.dataset.symbol = symbol;
         card.addEventListener('click', () => flipCard(card));
         grid.appendChild(card);
@@ -62,7 +62,7 @@ function flipCard(card) {
         openCards = [];
         window.playGameSound('success');
         if (matchedPairs === symbols.length) {
-            status.textContent = `Bạn thắng với ${moves} lượt lật!`;
+            status.textContent = FeatureI18n.translate('memoryWin', { n: moves });
             window.playGameSound('win');
         }
         return;
@@ -73,7 +73,7 @@ function flipCard(card) {
     mismatchTimer = setTimeout(() => {
         [first, second].forEach((item) => {
             item.textContent = '?';
-            item.setAttribute('aria-label', 'Thẻ chưa lật');
+            item.setAttribute('aria-label', FeatureI18n.translate('cardHidden'));
             item.classList.remove('is-open');
         });
         openCards = [];

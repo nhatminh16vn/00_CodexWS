@@ -30,6 +30,24 @@
             ]
         };
 
+        Object.values(gameData).flat().forEach((question, index) => {
+            question.translationId = index;
+        });
+
+        function getQuestionCopy(question) {
+            const locale = FeatureI18n.language;
+            if (question.translationId >= 5 && question.translationId < 10) {
+                return window.Feature12HistoryContent?.[locale]?.[question.translationId - 5] || question;
+            }
+            if (question.translationId >= 10 && question.translationId < 15) {
+                return window.Feature12NatureContent?.[locale]?.[question.translationId - 10] || question;
+            }
+            if (question.translationId >= 15 && question.translationId < 20) {
+                return window.Feature12TechContent?.[locale]?.[question.translationId - 15] || question;
+            }
+            return window.Feature12Content?.[locale]?.[question.translationId] || question;
+        }
+
         // Game state
         const state = {
             questions: [],
@@ -130,7 +148,7 @@
             }
             
             const question = state.questions[state.currentIndex];
-            elements.statement.textContent = question.statement;
+            elements.statement.textContent = getQuestionCopy(question).statement;
             
             // Update progress
             elements.questionCount.textContent = state.currentIndex + 1;
@@ -158,16 +176,17 @@
             if (isCorrect) {
                 state.score++;
                 updateScore();
-                elements.feedback.textContent = 'Correct! 🎉';
+                elements.feedback.textContent = FeatureI18n.translate('factCorrect');
                 elements.feedback.className = 'feedback correct';
                 createConfetti();
             } else {
-                elements.feedback.textContent = `Incorrect! It's ${question.answer === 'fact' ? 'a FACT' : 'FICTION'}.`;
+                const answerLabel = FeatureI18n.translate(question.answer);
+                elements.feedback.textContent = FeatureI18n.translate('factIncorrect', { answer: answerLabel });
                 elements.feedback.className = 'feedback incorrect';
             }
             
             // Show explanation
-            elements.explanation.textContent = question.explanation;
+            elements.explanation.textContent = getQuestionCopy(question).explanation;
             elements.explanation.style.display = 'block';
             
             // Disable answer buttons
@@ -194,8 +213,8 @@
             
             // Show final score
             elements.statement.innerHTML = `
-                <div class="game-over">Game Over!</div>
-                <div class="final-score">${state.score}/${state.questions.length}</div>
+                <div class="game-over">${FeatureI18n.translate('gameOver')}</div>
+                <div class="final-score">${FeatureI18n.translate('finalScore')} ${state.score}/${state.questions.length}</div>
             `;
             
             // Hide answer buttons
@@ -208,7 +227,7 @@
             
             // Special message for perfect score
             if (state.score === state.questions.length) {
-                elements.statement.innerHTML += `<div style="margin-top: 1rem;">Perfect! You're a fact master! 🏆</div>`;
+                elements.statement.innerHTML += `<div style="margin-top: 1rem;">${FeatureI18n.translate('perfectFactMaster')} 🏆</div>`;
                 createConfetti(true);
             }
         }

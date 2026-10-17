@@ -14,7 +14,10 @@ colors.forEach((color) => {
     pad.type = 'button';
     pad.className = 'simon-pad';
     pad.dataset.color = color;
-    pad.setAttribute('aria-label', color);
+    const colorTranslation = {
+        red: 'colorRed', blue: 'colorBlue', yellow: 'colorYellow', green: 'green'
+    };
+    pad.setAttribute('aria-label', FeatureI18n.translate(colorTranslation[color]).toLocaleLowerCase());
     pad.addEventListener('click', () => chooseColor(color));
     pads[color] = pad;
     simonGrid.appendChild(pad);
@@ -31,7 +34,7 @@ async function flash(color, duration = 280) {
 
 async function showSequence() {
     showing = true;
-    status.textContent = 'Hãy nghe và ghi nhớ chuỗi màu.';
+    status.textContent = FeatureI18n.translate('listen');
     await delay(350);
     for (const color of sequence) {
         await flash(color);
@@ -39,7 +42,7 @@ async function showSequence() {
     }
     showing = false;
     inputIndex = 0;
-    status.textContent = 'Đến lượt bạn lặp lại chuỗi.';
+    status.textContent = FeatureI18n.translate('repeat');
 }
 
 function nextRound() {
@@ -53,15 +56,15 @@ function chooseColor(color) {
     flash(color, 170);
     if (sequence[inputIndex] !== color) {
         playing = false;
-        status.textContent = `Sai mất rồi! Bạn nhớ được ${sequence.length - 1} màu.`;
+        status.textContent = FeatureI18n.translate('simonError', { n: sequence.length - 1 });
         window.playGameSound('miss');
-        document.getElementById('start').textContent = 'Chơi lại';
+        document.getElementById('start').textContent = FeatureI18n.translate('replay');
         return;
     }
     inputIndex++;
     if (inputIndex === sequence.length) {
         window.playGameSound('success');
-        status.textContent = 'Chính xác! Chuỗi tiếp theo dài hơn.';
+        status.textContent = FeatureI18n.translate('correct');
         setTimeout(nextRound, 650);
     }
 }
@@ -70,8 +73,8 @@ document.getElementById('start').addEventListener('click', () => {
     sequence = [];
     inputIndex = 0;
     playing = true;
-    status.textContent = 'Bắt đầu nhớ màu nhé.';
-    document.getElementById('start').textContent = 'Chơi lại';
+    status.textContent = FeatureI18n.translate('simonStart');
+    document.getElementById('start').textContent = FeatureI18n.translate('replay');
     window.playGameSound('start');
     nextRound();
 });

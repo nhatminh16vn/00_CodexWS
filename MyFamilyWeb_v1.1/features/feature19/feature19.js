@@ -16,13 +16,13 @@ function resetGame() {
     currentPlayer = 'X';
     gameOver = false;
     aiThinking = false;
-    status.textContent = 'Lượt của X';
+    status.textContent = FeatureI18n.translate('turn', { p: 'X' });
     board.replaceChildren();
     cells.forEach((_, index) => {
         const cell = document.createElement('button');
         cell.type = 'button';
         cell.className = 'game-cell';
-        cell.setAttribute('aria-label', `Ô ${index + 1}, trống`);
+        cell.setAttribute('aria-label', FeatureI18n.translate('emptyCell', { n: index + 1 }));
         cell.addEventListener('click', () => makeMove(index, cell));
         board.appendChild(cell);
     });
@@ -35,29 +35,29 @@ function makeMove(index, cell) {
 
     if (modeSelect.value === 'ai' && currentPlayer === 'O') {
         aiThinking = true;
-        status.textContent = `Máy đang nghĩ (${difficultySelect.selectedOptions[0].text})…`;
+        status.textContent = FeatureI18n.translate('thinking', { level: difficultySelect.selectedOptions[0].text });
         Array.from(board.children).forEach((button) => { button.disabled = true; });
         aiTimer = setTimeout(makeAIMove, 260);
         return;
     }
-    status.textContent = `Lượt của ${currentPlayer}`;
+    status.textContent = FeatureI18n.translate('turn', { p: currentPlayer });
 }
 
 function applyMove(index, cell) {
     cells[index] = currentPlayer;
     cell.textContent = currentPlayer;
-    cell.setAttribute('aria-label', `Ô ${index + 1}, ${currentPlayer}`);
+    cell.setAttribute('aria-label', FeatureI18n.translate('markedCell', { n: index + 1, p: currentPlayer }));
     window.playGameSound('tap');
 
     if (winningLines.some((line) => line.every((position) => cells[position] === currentPlayer))) {
         gameOver = true;
-        status.textContent = `Người chơi ${currentPlayer} chiến thắng!`;
+        status.textContent = FeatureI18n.translate('wins', { p: currentPlayer });
         window.playGameSound('win');
         return;
     }
     if (cells.every(Boolean)) {
         gameOver = true;
-        status.textContent = 'Hòa! Hai bạn chơi rất hay.';
+        status.textContent = FeatureI18n.translate('draw');
         window.playGameSound('success');
         return;
     }
@@ -136,7 +136,7 @@ function makeAIMove() {
     Array.from(board.children).forEach((button, buttonIndex) => {
         button.disabled = gameOver || cells[buttonIndex] !== '';
     });
-    if (!gameOver) status.textContent = 'Lượt của bạn (X)';
+    if (!gameOver) status.textContent = FeatureI18n.translate('yourTurn');
 }
 
 document.getElementById('restart').addEventListener('click', resetGame);

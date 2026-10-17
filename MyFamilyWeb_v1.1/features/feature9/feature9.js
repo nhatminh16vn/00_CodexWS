@@ -55,7 +55,7 @@
                 botResponse.suggestions.forEach((suggestion) => {
                     const suggestionElement = document.createElement('div');
                     suggestionElement.className = 'suggestion';
-                    suggestionElement.textContent = suggestion;
+                    suggestionElement.textContent = localizeSuggestion(suggestion);
                     suggestionElement.addEventListener('click', () => quickQuestion(suggestion));
                     suggestionsDiv.appendChild(suggestionElement);
                 });
@@ -70,6 +70,19 @@
             messageElement.textContent = text;
             chatMessages.appendChild(messageElement);
             chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function localizeSuggestion(suggestion) {
+            if (suggestion === 'What can you do?') return FeatureI18n.translate('chatAskQuestion');
+            if (/teach me|japanese|hiragana|quiz|hello in japanese|thank you/i.test(suggestion)) return FeatureI18n.translate('chatStudyQuestion');
+            if (/calculate|solve|calculation/i.test(suggestion)) {
+                const expression = suggestion.replace(/^(calculate|solve)\s*/i, '').replace(/^another calculation$/i, '15 + 27');
+                return FeatureI18n.translate('chatCalculate', { expr: expression });
+            }
+            if (/joke/i.test(suggestion)) return FeatureI18n.translate('chatTellJoke');
+            if (/book|movie|recommendation/i.test(suggestion)) return FeatureI18n.translate('chatRecommend');
+            if (/fix|printer|wi[\s\u2011-]?fi/i.test(suggestion)) return FeatureI18n.translate('chatStudyTech');
+            return suggestion;
         }
 
         function getRandomResponse(responses) {
@@ -140,7 +153,7 @@
             const nameMatch = message.match(/my name is\s+([a-zA-Z]+)/i);
             if (nameMatch) {
                 state.memory.name = nameMatch[1];
-                response.text = `Nice to meet you, ${nameMatch[1]}! I’m your family chatbot. I can help with study, math, and ideas.`;
+                response.text = FeatureI18n.translate('chatGreetingNamed', { name: nameMatch[1] });
                 response.suggestions = ['What can you do?', 'Teach me Japanese', 'Solve 6 * 7'];
                 return response;
             }
@@ -148,22 +161,22 @@
             if (predictedIntent === 'greeting') {
                 state.lastTopic = null;
                 response.text = state.memory.name
-                    ? `Hi ${state.memory.name}! I’m ready to help with questions, study, math, and creativity.`
-                    : 'Hi! I’m your family chatbot. I can help with math, study, tech, recommendations, and quick ideas.';
+                    ? FeatureI18n.translate('chatGreetingNamed', { name: state.memory.name })
+                    : FeatureI18n.translate('chatGreeting');
                 response.suggestions = ['What can you do?', 'Calculate 15 + 27', 'Teach me Japanese'];
                 return response;
             }
 
             if (predictedIntent === 'help') {
                 state.lastTopic = 'help';
-                response.text = 'I’m a simple chatbot built into this website. I can do quick math, explain study topics, answer general questions, help with tech issues, and suggest books, jokes, or learning ideas.';
+                response.text = FeatureI18n.translate('chatHelpResponse');
                 response.suggestions = ['Solve 8 * 9', 'Teach me Japanese', 'Book recommendation'];
                 return response;
             }
 
             if (predictedIntent === 'study') {
                 state.lastTopic = 'study';
-                response.text = 'Let’s study Japanese in a simple way: start with Hiragana, then Katakana, then common words. Try this: あ = a, き = ki, し = shi, ら = ra. Want a quick lesson or a quiz?';
+                response.text = FeatureI18n.translate('chatStudyResponse');
                 response.suggestions = ['Teach me hiragana', 'How to say hello in Japanese', 'Give me a quiz'];
                 return response;
             }
@@ -179,64 +192,62 @@
                         return response;
                     }
                 }
-                response.text = 'I can help with mathematics. Try examples like 15 + 27, 48 / 6, or 9 * 8.';
+                response.text = FeatureI18n.translate('chatMathResponse');
                 response.suggestions = ['Calculate 15 + 27', 'What can you do?', 'Teach me Japanese'];
                 return response;
             }
 
             if (predictedIntent === 'recommendation') {
                 state.lastTopic = 'recommend';
-                response.text = 'Here are a few good picks: for books, try The Name of the Wind or Project Hail Mary; for movies, try Interstellar or The Grand Budapest Hotel. If you want something more playful, I can suggest for kids, family, or learning.';
+                response.text = FeatureI18n.translate('chatRecommendationResponse');
                 response.suggestions = ['Book recommendation', 'Movie recommendation', 'Tell me a joke'];
                 return response;
             }
 
             if (predictedIntent === 'joke') {
-                response.text = getRandomResponse([
-                    'Why don’t skeletons fight each other? They don’t have the guts!',
-                    'What did one wall say to the other? “I’ll meet you at the corner!”',
-                    'Why was the math book sad? Because it had too many problems.'
-                ]);
+                response.text = FeatureI18n.translate('chatJoke');
                 response.suggestions = ['Another joke', 'Book recommendation', 'Teach me Japanese'];
                 return response;
             }
 
             if (predictedIntent === 'tech') {
                 state.lastTopic = 'tech';
-                response.text = 'A good troubleshooting flow is: restart the device, check the connection, update software, and test with one other device. If it is a Wi‑Fi issue, restart the modem and router, then reconnect.';
+                response.text = FeatureI18n.translate('chatTechResponse');
                 response.suggestions = ['Fix Wi‑Fi', 'Fix printer', 'What can you do?'];
                 return response;
             }
 
             if (predictedIntent === 'time') {
                 const now = new Date();
-                response.text = `Right now it is ${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} on ${now.toLocaleDateString()}.`;
+                const locale = { fil: 'fil-PH' }[FeatureI18n.language] || FeatureI18n.language;
+                response.text = FeatureI18n.translate('chatTimeNow', {
+                    time: now.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' }),
+                    date: now.toLocaleDateString(locale)
+                });
                 response.suggestions = ['What can you do?', 'Teach me Japanese', 'Tell me a joke'];
                 return response;
             }
 
             if (predictedIntent === 'goodbye') {
-                response.text = 'Goodbye! Come back anytime — I’m here for quick questions, study help, and creative ideas.';
+                response.text = FeatureI18n.translate('chatGoodbye');
                 response.suggestions = ['What can you do?', 'Teach me Japanese'];
                 return response;
             }
 
             if (/(hello in japanese|how do you say.*japanese|say.*hello)/.test(msg)) {
-                response.text = 'A common way to say hello in Japanese is こんにちは (konnichiwa). If you want a more casual greeting, you can say こんばんは (konbanwa).';
+                response.text = FeatureI18n.translate('chatJapaneseHello');
                 response.suggestions = ['Teach me hiragana', 'How to say thank you?', 'Give me a quiz'];
                 return response;
             }
 
             if (/(thank you|thanks)/.test(msg)) {
-                response.text = 'You’re welcome! I’m happy to help. Ask me a math question, a study prompt, or another idea.';
+                response.text = FeatureI18n.translate('chatThanks');
                 response.suggestions = ['Teach me Japanese', 'Solve 12 + 25', 'Tell me a joke'];
                 return response;
             }
 
             const generalResponses = [
-                'That sounds interesting. I can help with learning, math, tech questions, or fun ideas. What would you like to explore?',
-                'I’m following your question. Try asking me for a math problem, a study topic, or a recommendation.',
-                'I can help with that. Ask me a simple question and I’ll turn it into a clear answer.'
+                FeatureI18n.translate('chatGeneral')
             ];
 
             response.text = getRandomResponse(generalResponses);

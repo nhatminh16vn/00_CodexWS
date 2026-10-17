@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiragana Random Generator</title>
+    <title data-feature-i18n="hiraganaRandomTitle">Hiragana Random Generator</title>
     <link rel="stylesheet" href="feature11.css">
 </head>
     <!-- Liên kết đến CSS chính và CSS của feature -->
@@ -24,21 +24,22 @@
     </div>
 
     <div class="controls">
-        <button class="generate-btn" onclick="generateNewCharacter()">Generate</button>
-        <button class="reset-btn" onclick="resetAll()">Reset</button>
+        <button class="generate-btn" onclick="generateNewCharacter()" data-feature-i18n="randomGenerate">Generate</button>
+        <button class="reset-btn" onclick="resetAll()" data-feature-i18n="resetLabel">Reset</button>
     </div>
 
     <div class="history-panel">
-        <h2>Lịch sử xuất hiện</h2>
+        <h2 data-feature-i18n="historyTitle">Lịch sử xuất hiện</h2>
         <div class="history-grid" id="historyContainer"></div>
     </div>
     <div class="hiragana-list">
-        <h2>Danh sách Hiragana</h2>
+        <h2 data-feature-i18n="hiraganaList">Danh sách Hiragana</h2>
         <ul id="hiraganaList">
             <!-- Danh sách Hiragana sẽ được tạo động bằng JavaScript -->
         </ul>
     </div>
     <!-- Hàm để lấy ký tự Hiragana ngẫu nhiên -->
+    <script src="../../js/utils/feature-i18n.js"></script>
     <script src="feature11.js"></script>
         <script src="../../js/site-music.js"></script>
     </body>

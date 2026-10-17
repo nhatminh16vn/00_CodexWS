@@ -19,8 +19,8 @@ function createBubble() {
     bubble.style.left = `${Math.random() * 82 + 4}%`;
     bubble.style.top = '82%';
     bubble.dataset.rise = String(Math.random() * 0.3 + 0.22);
-    bubble.setAttribute('aria-label', 'Bong bóng, chạm để làm vỡ');
-    bubble.textContent = 'POP';
+    bubble.setAttribute('aria-label', FeatureI18n.translate('bubbleTap'));
+    bubble.textContent = FeatureI18n.translate('bubblePop');
     bubble.addEventListener('click', () => {
         if (!running) return;
         bubble.remove();
@@ -37,9 +37,9 @@ function endGame() {
     clearInterval(clockTimer);
     clearInterval(motionTimer);
     field.replaceChildren();
-    status.textContent = `Hết giờ! Bạn đã làm vỡ ${score} bong bóng.`;
+    status.textContent = FeatureI18n.translate('bubbleResult', { score });
     window.playGameSound('win');
-    document.getElementById('start').textContent = 'Chơi lại';
+    document.getElementById('start').textContent = FeatureI18n.translate('replay');
 }
 
 document.getElementById('start').addEventListener('click', () => {
@@ -52,8 +52,8 @@ document.getElementById('start').addEventListener('click', () => {
     running = true;
     scoreDisplay.textContent = score;
     timeDisplay.textContent = timeLeft;
-    status.textContent = 'Chạm bong bóng để ghi điểm!';
-    document.getElementById('start').textContent = 'Chơi lại';
+    status.textContent = FeatureI18n.translate('bubbleTap');
+    document.getElementById('start').textContent = FeatureI18n.translate('replay');
     window.playGameSound('start');
     createBubble();
     spawnTimer = setInterval(createBubble, 650);

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Chatbot</title>
+    <title data-feature-i18n="chatTitle">Family Chatbot</title>
     <link rel="stylesheet" href="feature9.css">
     <link rel="stylesheet" href="../../css/home-link.css">
 </head>
@@ -13,29 +13,30 @@
     <a href="../../index.html" class="home-link">Trang chủ</a>
     <div class="chat-container">
         <div class="chat-header">
-            <h1>Family Chatbot</h1>
+            <h1 data-feature-i18n="chatTitle">Family Chatbot</h1>
         </div>
         <div class="chat-messages" id="chat-messages">
             <div class="message bot-message">
-                <div>Hi! I'm your family chatbot. I can:</div>
+                <div data-feature-i18n="chatIntro">Hi! I'm your family chatbot. I can:</div>
                 <ul>
-                    <li>Answer questions</li>
-                    <li>Solve math problems</li>
-                    <li>Help with study and tech topics</li>
-                    <li>Recommend books, jokes, and ideas</li>
+                    <li data-feature-i18n="chatQuestions">Answer questions</li>
+                    <li data-feature-i18n="chatSolveMath">Solve math problems</li>
+                    <li data-feature-i18n="chatStudyTech">Help with study and tech topics</li>
+                    <li data-feature-i18n="chatRecommend">Recommend books, jokes, and ideas</li>
                 </ul>
                 <div class="suggestions">
-                    <div class="suggestion" onclick="quickQuestion('What can you do?')">Ask me</div>
-                    <div class="suggestion" onclick="quickQuestion('Calculate 15 + 27')">Math</div>
-                    <div class="suggestion" onclick="quickQuestion('Teach me Japanese')">Study</div>
+                    <div class="suggestion" onclick="quickQuestion('What can you do?')" data-feature-i18n="chatAsk">Ask me</div>
+                    <div class="suggestion" onclick="quickQuestion('Calculate 15 + 27')" data-feature-i18n="chatMath">Math</div>
+                    <div class="suggestion" onclick="quickQuestion('Teach me Japanese')" data-feature-i18n="chatStudy">Study</div>
                 </div>
             </div>
         </div>
         <div class="chat-input">
-            <input type="text" id="user-input" placeholder="Ask me anything...">
-            <button id="send-button">Send</button>
+            <input type="text" id="user-input" placeholder="Ask me anything..." data-feature-i18n-placeholder="chatPlaceholder">
+            <button id="send-button" data-feature-i18n="chatSend">Send</button>
         </div>
     </div>
+    <script src="../../js/utils/feature-i18n.js"></script>
     <script src="feature9.js"></script>
     <script src="../../js/site-music.js"></script>
 </body>

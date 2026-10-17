@@ -15,7 +15,7 @@ function makeHoles() {
         const hole = document.createElement('button');
         hole.type = 'button';
         hole.className = 'mole-cell';
-        hole.setAttribute('aria-label', `Ô ${index + 1}`);
+        hole.setAttribute('aria-label', FeatureI18n.translate('holeLabel', { n: index + 1 }));
         hole.addEventListener('click', () => hitHole(index));
         moleGrid.appendChild(hole);
     }
@@ -56,9 +56,9 @@ function endGame() {
     clearInterval(moleTimer);
     if (activeHole >= 0) moleGrid.children[activeHole].classList.remove('is-active');
     activeHole = -1;
-    status.textContent = `Hết giờ! Bạn đập trúng ${score} chú chuột.`;
+    status.textContent = FeatureI18n.translate('moleResult', { n: score });
     window.playGameSound('win');
-    document.getElementById('start').textContent = 'Chơi lại';
+    document.getElementById('start').textContent = FeatureI18n.translate('replay');
 }
 
 function startGame() {
@@ -70,8 +70,8 @@ function startGame() {
     activeHole = -1;
     scoreDisplay.textContent = score;
     timeDisplay.textContent = timeLeft;
-    status.textContent = 'Đập chuột nhanh nào!';
-    document.getElementById('start').textContent = 'Chơi lại';
+    status.textContent = FeatureI18n.translate('startMole');
+    document.getElementById('start').textContent = FeatureI18n.translate('replay');
     Array.from(moleGrid.children).forEach((hole) => { hole.textContent = ''; hole.classList.remove('is-active'); });
     window.playGameSound('start');
     showMole();

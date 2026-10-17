@@ -22,7 +22,8 @@ MyFamilyWeb_v1.0/
 │       └── feature2.css  
 ├── js/  
 │   ├── utils/  
-│   │   └── helpers.js  
+│   │   ├── helpers.js
+│   │   └── feature-i18n.js
 │   └── app.js  
 ├── index.html  
 └── README.md  
@@ -43,6 +44,8 @@ data/hiragana.json – Contains Hiragana character data.
 css/main.css – Global styles.
 js/app.js – Main JavaScript logic.
 js/utils/helpers.js – Utility functions.
+js/utils/feature-i18n.js – Shared translations for features 1–24, using the language selected on the home page. Feature 25 keeps its own language system.
+Feature-specific translated game content is stored beside its game files, such as the question sets in features/feature12/ and features/feature16/.
 
 
 5. Infinite Math Platformer (features/feature25/)

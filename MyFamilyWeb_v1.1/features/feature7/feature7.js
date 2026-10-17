@@ -43,7 +43,7 @@
             clicksDisplay.textContent = clicks;
             timeDisplay.textContent = timeLeft;
             scoreDisplay.textContent = 0;
-            target.textContent = "Bấm!";
+            target.textContent = FeatureI18n.translate('clickNow');
             target.style.backgroundColor = "#e74c3c";
             
             timer = setInterval(() => {
@@ -59,8 +59,8 @@
         function endGame() {
             clearInterval(timer);
             gameRunning = false;
-            target.textContent = "Kết thúc!";
-            alert(`Trò chơi kết thúc! Bạn đã bấm ${clicks} lần. Điểm số: ${clicks * 10}`);
+            target.textContent = FeatureI18n.translate('clickEnd');
+            alert(FeatureI18n.translate('clickSummary', { clicks, score: clicks * 10 }));
         }
         
         function resetGame() {
@@ -71,7 +71,7 @@
             clicksDisplay.textContent = clicks;
             timeDisplay.textContent = timeLeft;
             scoreDisplay.textContent = 0;
-            target.textContent = "Bắt Đầu";
+            target.textContent = FeatureI18n.translate('clickStart');
             target.style.backgroundColor = "#e74c3c";
             target.style.transform = 'translate(0, 0)';
         }

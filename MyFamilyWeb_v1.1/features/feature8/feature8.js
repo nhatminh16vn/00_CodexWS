@@ -28,16 +28,16 @@
         };
 
         const tierDefinitions = {
-            1: { summary: '100% very easy', distribution: [['veryEasy', 1]] },
-            2: { summary: '100% easy', distribution: [['easy', 1]] },
-            3: { summary: '50% easy, 50% medium', distribution: [['easy', 0.5], ['medium', 0.5]] },
-            4: { summary: '25% easy, 75% medium', distribution: [['easy', 0.25], ['medium', 0.75]] },
-            5: { summary: '100% medium', distribution: [['medium', 1]] },
-            6: { summary: '50% medium, 50% hard', distribution: [['medium', 0.5], ['hard', 0.5]] },
-            7: { summary: '25% medium, 75% hard', distribution: [['medium', 0.25], ['hard', 0.75]] },
-            8: { summary: '100% hard', distribution: [['hard', 1]] },
-            9: { summary: '50% hard, 50% expert', distribution: [['hard', 0.5], ['expert', 0.5]] },
-            10: { summary: '100% expert', distribution: [['expert', 1]] }
+            1: { distribution: [['veryEasy', 1]] },
+            2: { distribution: [['easy', 1]] },
+            3: { distribution: [['easy', 0.5], ['medium', 0.5]] },
+            4: { distribution: [['easy', 0.25], ['medium', 0.75]] },
+            5: { distribution: [['medium', 1]] },
+            6: { distribution: [['medium', 0.5], ['hard', 0.5]] },
+            7: { distribution: [['medium', 0.25], ['hard', 0.75]] },
+            8: { distribution: [['hard', 1]] },
+            9: { distribution: [['hard', 0.5], ['expert', 0.5]] },
+            10: { distribution: [['expert', 1]] }
         };
         
         // Player ball
@@ -104,10 +104,23 @@
         
         tierSelectElement.addEventListener('change', updateTierDescription);
         startButtonElement.addEventListener('click', startGame);
+        function getTierSummary(tier) {
+            const profileLabels = {
+                veryEasy: 'veryEasy', easy: 'easyWord', medium: 'mediumWord', hard: 'hardWord', expert: 'expertWord'
+            };
+            return tierDefinitions[tier].distribution.map(([profile, share]) =>
+                `${Math.round(share * 100)}% ${FeatureI18n.translate(profileLabels[profile])}`
+            ).join(', ');
+        }
+
         function updateTierDescription() {
             const tier = Number(tierSelectElement.value);
-            tierDescriptionElement.textContent = `Tier ${tier}: ${tierDefinitions[tier].summary} obstacles.`;
+            tierDescriptionElement.textContent = FeatureI18n.translate('tierDescription', {
+                tier,
+                summary: getTierSummary(tier)
+            });
         }
+        updateTierDescription();
         
         function startGame() {
             gameRunning = true;
@@ -121,8 +134,11 @@
             pointerControlActive = false;
             obstacles = [];
             instructionsElement.style.display = 'none';
-            scoreElement.textContent = 'Score: 0';
-            difficultyElement.textContent = `Tier ${selectedTier}: ${tierDefinitions[selectedTier].summary}`;
+            scoreElement.textContent = `${FeatureI18n.translate('score')}: 0`;
+            difficultyElement.textContent = FeatureI18n.translate('tierDescription', {
+                tier: selectedTier,
+                summary: getTierSummary(selectedTier)
+            });
             animate();
         }
         
@@ -215,7 +231,7 @@
                     obs.y < -obs.radius * 2 || obs.y > canvas.height + obs.radius * 2) {
                     obstacles.splice(i, 1);
                     score++;
-                    scoreElement.textContent = `Score: ${score}`;
+                    scoreElement.textContent = `${FeatureI18n.translate('score')}: ${score}`;
                     
                 }
                 
@@ -232,9 +248,9 @@
         
         function gameOver() {
             gameRunning = false;
-            gameTitleElement.textContent = 'Game Over';
-            gameMessageElement.textContent = `Your score: ${score}. Choose a tier and play again.`;
-            startButtonElement.textContent = 'Play again';
+            gameTitleElement.textContent = FeatureI18n.translate('gameOver');
+            gameMessageElement.textContent = FeatureI18n.translate('ballResult', { score });
+            startButtonElement.textContent = FeatureI18n.translate('replay');
             instructionsElement.style.display = 'block';
         }
         

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cộng Trừ Đến 1000</title>
+    <title data-feature-i18n="arithmeticTitle">Cộng Trừ Đến 1000</title>
     <link rel="stylesheet" href="feature6.css">
     <link rel="stylesheet" href="../../css/home-link.css">
 </head>
@@ -12,35 +12,36 @@
 <body>
     <a href="../../index.html" class="home-link">Trang chủ</a>
     <div class="container">
-        <h1>Luyện Tập Cộng Trừ Đến 1000</h1>
+        <h1 data-feature-i18n="arithmeticTitle">Luyện Tập Cộng Trừ Đến 1000</h1>
 
         <div class="timer">
-            Thời gian: <span id="time">0</span> giây
+            <span data-feature-i18n="timeLabel">Thời gian</span>: <span id="time">0</span> <span data-feature-i18n="seconds">giây</span>
         </div>
 
         <div class="points">
-            Điểm: <span id="points">0</span>
+            <span data-feature-i18n="points">Điểm</span>: <span id="points">0</span>
         </div>
 
         <div class="attempts">
-            Số lần thử còn lại: <span id="remainingAttempts">3</span>
+            <span data-feature-i18n="attempts">Số lần thử còn lại</span>: <span id="remainingAttempts">3</span>
         </div>
 
         <div class="controls">
-            <button id="newProblem">Bài Mới</button>
+            <button id="newProblem" data-feature-i18n="newProblem">Bài Mới</button>
         </div>
 
         <div class="problem" id="problem">?</div>
 
-        <input type="number" class="answer" id="answer" placeholder="Đáp án">
+        <input type="number" class="answer" id="answer" placeholder="Đáp án" data-feature-i18n-placeholder="answerPlaceholder">
 
         <div class="result feedback" id="result"></div>
 
         <div class="score">
-            Đúng: <span id="correct">0</span> |
-            Sai: <span id="incorrect">0</span>
+            <span data-feature-i18n="correctLabel">Đúng</span>: <span id="correct">0</span> |
+            <span data-feature-i18n="incorrectLabel">Sai</span>: <span id="incorrect">0</span>
         </div>
     </div>
+    <script src="../../js/utils/feature-i18n.js"></script>
     <script src="feature6.js"></script>
     <script src="../../js/site-music.js"></script>
 </body>

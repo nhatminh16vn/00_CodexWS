@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thử thách tính nhanh</title>
+    <title data-feature-i18n="mathTitle">Thử thách tính nhanh</title>
     <link rel="stylesheet" href="../../css/home-link.css">
     <link rel="stylesheet" href="../../css/family-games.css?v=2">
 </head>
 <body class="mini-game-page" style="--game-accent:#bc5a20">
     <a href="../../index.html" class="home-link">Trang chủ</a>
     <main class="mini-game">
-        <header class="game-heading"><h1>Thử thách tính nhanh</h1><p>Giải càng nhiều phép tính càng tốt trong 60 giây.</p></header>
-        <div class="game-stats"><span>Điểm: <b id="score">0</b></span><span>Thời gian: <b id="time">60</b>s</span></div>
-        <p class="math-question" id="question">Sẵn sàng?</p>
+        <header class="game-heading"><h1 data-feature-i18n="mathTitle">Thử thách tính nhanh</h1><p data-feature-i18n="mathDesc">Giải càng nhiều phép tính càng tốt trong 60 giây.</p></header>
+        <div class="game-stats"><span><span data-feature-i18n="score">Điểm</span>: <b id="score">0</b></span><span><span data-feature-i18n="time">Thời gian</span>: <b id="time">60</b>s</span></div>
+        <p class="math-question" id="question" data-feature-i18n="ready">Sẵn sàng?</p>
         <form class="math-entry" id="answer-form">
-            <input class="game-input" id="answer" type="number" inputmode="numeric" autocomplete="off" aria-label="Đáp án">
-            <button class="game-button" type="submit">Trả lời</button>
+            <input class="game-input" id="answer" type="number" inputmode="numeric" autocomplete="off" aria-label="Đáp án" data-feature-i18n-aria="answer">
+            <button class="game-button" type="submit" data-feature-i18n="submit">Trả lời</button>
         </form>
-        <p class="game-status" id="status" role="status" aria-live="polite">Bấm bắt đầu để chơi.</p>
-        <div class="game-actions"><button class="game-button" id="start" type="button">Bắt đầu</button></div>
+        <p class="game-status" id="status" role="status" aria-live="polite" data-feature-i18n="mathReady">Bấm bắt đầu để chơi.</p>
+        <div class="game-actions"><button class="game-button" id="start" type="button" data-feature-i18n="start">Bắt đầu</button></div>
     </main>
-    <script src="../../js/game-audio.js"></script><script src="feature22.js"></script><script src="../../js/site-music.js"></script>
+    <script src="../../js/utils/feature-i18n.js"></script><script src="../../js/game-audio.js"></script><script src="feature22.js"></script><script src="../../js/site-music.js"></script>
 </body>
 </html>

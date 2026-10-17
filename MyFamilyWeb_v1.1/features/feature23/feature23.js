@@ -1,4 +1,4 @@
-const colorNames = ['ĐỎ', 'XANH', 'VÀNG', 'TÍM'];
+const colorNames = ['colorRed', 'colorBlue', 'colorYellow', 'colorPurple'].map((key) => FeatureI18n.translate(key));
 const colorValues = ['#d9413a', '#2378c8', '#d49a08', '#8053bd'];
 const prompt = document.getElementById('prompt');
 const choices = document.getElementById('choices');
@@ -20,11 +20,11 @@ function nextPrompt() {
 
 function endGame() {
     running = false;
-    prompt.textContent = 'Kết thúc!';
+    prompt.textContent = FeatureI18n.translate('colorEnd');
     prompt.style.color = '#283652';
-    status.textContent = `Bạn đạt ${score}/${20} điểm.`;
+    status.textContent = FeatureI18n.translate('colorResult', { score });
     window.playGameSound('win');
-    document.getElementById('start').textContent = 'Chơi lại';
+    document.getElementById('start').textContent = FeatureI18n.translate('replay');
 }
 
 colorNames.forEach((name, index) => {
@@ -37,10 +37,10 @@ colorNames.forEach((name, index) => {
         if (!running) return;
         if (index === targetColor) {
             score++;
-            status.textContent = 'Đúng màu mực!';
+            status.textContent = FeatureI18n.translate('colorMatch');
             window.playGameSound('success');
         } else {
-            status.textContent = 'Nhìn màu chữ, đừng đọc nội dung nhé.';
+            status.textContent = FeatureI18n.translate('colorHint');
             window.playGameSound('miss');
         }
         scoreDisplay.textContent = score;
@@ -58,8 +58,8 @@ document.getElementById('start').addEventListener('click', () => {
     running = true;
     scoreDisplay.textContent = score;
     remainingDisplay.textContent = remaining;
-    status.textContent = 'Chọn tên màu khớp với màu mực.';
-    document.getElementById('start').textContent = 'Chơi lại';
+    status.textContent = FeatureI18n.translate('colorTarget');
+    document.getElementById('start').textContent = FeatureI18n.translate('replay');
     window.playGameSound('start');
     nextPrompt();
 });

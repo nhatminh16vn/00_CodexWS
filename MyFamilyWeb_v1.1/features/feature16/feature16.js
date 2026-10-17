@@ -56,12 +56,12 @@
         const gameArea = document.getElementById('gameArea');
         const instructions = document.getElementById('instructions');
 
-        document.getElementById('n6Btn').addEventListener('click', () => startGame('n6', 'N6 — Absolute Beginner'));
-        document.getElementById('n5Btn').addEventListener('click', () => startGame('n5', 'N5 — Beginner'));
-        document.getElementById('n4Btn').addEventListener('click', () => startGame('n4', 'N4 — Novice'));
-        document.getElementById('n3Btn').addEventListener('click', () => startGame('n3', 'N3 — Intermediate'));
-        document.getElementById('n2Btn').addEventListener('click', () => startGame('n2', 'N2 — Advanced'));
-        document.getElementById('n1Btn').addEventListener('click', () => startGame('n1', 'N1 — Advanced'));
+        document.getElementById('n6Btn').addEventListener('click', () => startGame('n6', `N6 — ${FeatureI18n.translate('jlptBeginner')}`));
+        document.getElementById('n5Btn').addEventListener('click', () => startGame('n5', `N5 — ${FeatureI18n.translate('jlptNovice')}`));
+        document.getElementById('n4Btn').addEventListener('click', () => startGame('n4', `N4 — ${FeatureI18n.translate('jlptNovice')}`));
+        document.getElementById('n3Btn').addEventListener('click', () => startGame('n3', `N3 — ${FeatureI18n.translate('jlptIntermediate')}`));
+        document.getElementById('n2Btn').addEventListener('click', () => startGame('n2', `N2 — ${FeatureI18n.translate('jlptAdvanced')}`));
+        document.getElementById('n1Btn').addEventListener('click', () => startGame('n1', `N1 — ${FeatureI18n.translate('jlptAdvanced')}`));
         nextBtn.addEventListener('click', loadNextQuestion);
 
         function startGame(level, title) {
@@ -76,25 +76,61 @@
                 loadQuestion();
             } catch (e) {
                 console.error('Error starting game:', e);
-                feedbackEl.textContent = 'An error occurred. Please check the console and try again.';
+                feedbackEl.textContent = FeatureI18n.translate('genericError');
             }
         }
 
         function loadQuestion() {
             const q = questions[currentLevel][currentQuestion];
-            questionEl.textContent = q.question;
+            questionEl.textContent = localizeQuestion(q.question);
             optionsEl.innerHTML = '';
             feedbackEl.textContent = '';
             nextBtn.classList.add('hidden');
 
             q.options.forEach(option => {
                 const btn = document.createElement('button');
-                btn.textContent = option;
+                btn.textContent = localizeOption(option);
+                btn.dataset.answer = option;
                 btn.classList.add('option', 'px-4', 'py-3', 'bg-gray-100', 'rounded-lg', 'text-left', 'border', 'border-gray-300', 'w-full', 'text-sm', 'sm:text-base');
                 btn.addEventListener('click', () => checkAnswer(option, q.answer));
                 optionsEl.appendChild(btn);
             });
 
+        }
+
+        function localizeQuestion(question) {
+            const copy = window.Feature16PromptI18n?.[FeatureI18n.language];
+            if (!copy) return question;
+
+            const rules = [
+                [/^What is the hiragana for '([^']+)'\?$/, 'hiragana', false],
+                [/^What does (.+) mean\?$/, 'meaning', false],
+                [/^What is the katakana for '([^']+)'\?$/, 'katakana', false],
+                [/^Translate: (.+)$/, 'translate', false],
+                [/^What particle marks the topic\?$/, 'topic', false],
+                [/^What is the kanji for '([^']+)'\?$/, 'kanji', true],
+                [/^Conjugate (.+) to polite past tense$/, 'past', false],
+                [/^What is the plain form of (.+)\?$/, 'plain', false],
+                [/^Humble form of (.+)\?$/, 'humble', false],
+                [/^Honorific form of (.+)\?$/, 'honorific', false],
+                [/^What is the polite form of (.+)\?$/, 'polite', false]
+            ];
+
+            for (const [pattern, key, translateTerm] of rules) {
+                const match = question.match(pattern);
+                if (!match) continue;
+                let item = match[1] || '';
+                if (translateTerm) item = copy.terms[item] || item;
+                return copy[key].replace('{item}', item);
+            }
+            return question;
+        }
+
+        function localizeOption(option) {
+            const index = window.Feature16OptionOrder?.indexOf(option) ?? -1;
+            return index >= 0
+                ? (window.Feature16OptionLabels?.[FeatureI18n.language]?.[index] || option)
+                : option;
         }
 
         function playSound(type) {
@@ -118,10 +154,10 @@
             const buttons = optionsEl.querySelectorAll('.option');
             buttons.forEach(btn => {
                 btn.disabled = true;
-                if (btn.textContent === correct) {
+                if (btn.dataset.answer === correct) {
                     btn.classList.add('correct');
                 }
-                if (btn.textContent === selected && selected !== correct) {
+                if (btn.dataset.answer === selected && selected !== correct) {
                     btn.classList.add('incorrect');
                 }
             });
@@ -129,11 +165,11 @@
             if (selected === correct) {
                 score += 10;
                 scoreValueEl.textContent = score;
-                feedbackEl.textContent = 'Correct! 🎉';
+                feedbackEl.textContent = FeatureI18n.translate('correctFeedback');
                 feedbackEl.classList.add('text-green-600');
                 playSound('correct');
             } else {
-                feedbackEl.textContent = `Incorrect. The answer is "${correct}".`;
+                feedbackEl.textContent = FeatureI18n.translate('incorrectFeedback', { answer: localizeOption(correct) });
                 feedbackEl.classList.add('text-red-600');
                 playSound('incorrect');
             }
@@ -146,9 +182,9 @@
             if (currentQuestion < questions[currentLevel].length) {
                 loadQuestion();
             } else {
-                questionEl.textContent = 'Game Over!';
+                questionEl.textContent = FeatureI18n.translate('jlptGameOver');
                 optionsEl.innerHTML = '';
-                feedbackEl.textContent = `Final Score: ${score}. Play again by selecting a level or restarting!`;
+                feedbackEl.textContent = FeatureI18n.translate('jlptFinalScore', { score });
                 nextBtn.classList.add('hidden');
             }
         }

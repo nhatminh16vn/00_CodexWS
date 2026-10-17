@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fact or Fiction Challenge</title>
+    <title data-feature-i18n="factTitle">Fact or Fiction Challenge</title>
 
 </head>
 
@@ -12,8 +12,8 @@
     <a href="../../index.html" class="home-link">Trang chủ</a>
     <div class="game-container">
         <div class="header">
-            <h1>Fact or Fiction?</h1>
-            <p>Test your knowledge with these surprising statements</p>
+            <h1 data-feature-i18n="factTitle">Fact or Fiction?</h1>
+            <p data-feature-i18n="factIntro">Test your knowledge with these surprising statements</p>
         </div>
         
     <!-- Liên kết đến CSS chính và CSS của feature -->
@@ -22,11 +22,11 @@
 
         <div class="category-selector">
             <select id="category-select">
-                <option value="all">All Categories</option>
-                <option value="science">Science</option>
-                <option value="history">History</option>
-                <option value="nature">Nature</option>
-                <option value="tech">Technology</option>
+                <option value="all" data-feature-i18n="allCategories">All Categories</option>
+                <option value="science" data-feature-i18n="science">Science</option>
+                <option value="history" data-feature-i18n="history">History</option>
+                <option value="nature" data-feature-i18n="nature">Nature</option>
+                <option value="tech" data-feature-i18n="technology">Technology</option>
             </select>
         </div>
 
@@ -35,12 +35,12 @@
         </div>
 
         <div class="score-container">
-            <div>Score: <span id="score">0</span></div>
-            <div>Question: <span id="question-count">1</span>/<span id="total-questions">0</span></div>
+            <div><span data-feature-i18n="score">Score</span>: <span id="score">0</span></div>
+            <div><span data-feature-i18n="questionLabel">Question</span>: <span id="question-count">1</span>/<span id="total-questions">0</span></div>
         </div>
 
         <div class="statement-container">
-            <p class="statement" id="statement">Loading game...</p>
+            <p class="statement" id="statement" data-feature-i18n="loadingGame">Loading game...</p>
         </div>
 
         <div class="feedback" id="feedback"></div>
@@ -48,13 +48,18 @@
         <div class="explanation" id="explanation"></div>
 
         <div class="buttons">
-            <button id="fact-btn">Fact ✅</button>
-            <button id="fiction-btn">Fiction ❌</button>
+            <button id="fact-btn"><span data-feature-i18n="fact">Fact</span> ✅</button>
+            <button id="fiction-btn"><span data-feature-i18n="fiction">Fiction</span> ❌</button>
         </div>
 
-        <button id="next-btn">Next Question ➡</button>
-        <button id="restart-btn">Play Again 🔄</button>
+        <button id="next-btn"><span data-feature-i18n="nextQuestion">Next Question</span> ➡</button>
+        <button id="restart-btn"><span data-feature-i18n="restartGame">Play Again</span> 🔄</button>
     </div>
+    <script src="../../js/utils/feature-i18n.js"></script>
+    <script src="feature12-content-i18n.js"></script>
+    <script src="feature12-history-i18n.js"></script>
+    <script src="feature12-nature-i18n.js"></script>
+    <script src="feature12-tech-i18n.js"></script>
     <script src="feature12.js"></script>
 
     <script src="../../js/site-music.js"></script>

@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Game Rắn Săn Mồi</title>
+    <title data-feature-i18n="snakeTitle">Game Rắn Săn Mồi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -10,22 +10,23 @@
     <link rel="stylesheet" href="feature2.css">
 </head>
 <body>
-    <a href="../../index.html" class="home-link">Trang chủ</a>
-    <h2>RẮN SĂN MỒI</h2>
-    <div class="score">Điểm: <span id="scoreDisplay">0</span></div>
+    <a href="../../index.html" class="home-link" data-feature-i18n="home">Trang chủ</a>
+    <h2 data-feature-i18n="snakeTitle">RẮN SĂN MỒI</h2>
+    <div class="score"><span data-feature-i18n="snakeScore">Điểm:</span> <span id="scoreDisplay">0</span></div>
     
     <div id="game-container">
         <canvas id="game"></canvas>
         <div id="gameOver">
-            <h3>GAME OVER!</h3>
-            <p>Điểm của bạn: <span id="finalScore">0</span></p>
-            <p>Nhấn nút bên dưới để chơi lại</p>
-            <button onclick="restartGame()">Chơi lại</button>
+            <h3 data-feature-i18n="gameOver">GAME OVER!</h3>
+            <p><span data-feature-i18n="finalScore">Điểm của bạn:</span> <span id="finalScore">0</span></p>
+            <p data-feature-i18n="restartHint">Nhấn nút bên dưới để chơi lại</p>
+            <button onclick="restartGame()" data-feature-i18n="restart">Chơi lại</button>
         </div>
     </div>
 
     <!-- Liên kết đến JavaScript chính và feature -->
     <script src="../../js/utils/helpers.js"></script>
+    <script src="../../js/utils/feature-i18n.js"></script>
     <script src="feature2.js"></script>
     <script src="../../js/site-music.js"></script>
 </body>

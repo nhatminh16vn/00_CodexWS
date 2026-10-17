@@ -652,8 +652,8 @@ function gameOver() {
   cancelAnimationFrame(animationId);
 
   // Show dramatic game over screen
-  finalScoreElement.textContent = `Final Score: ${score}`;
-  finalLevelElement.textContent = `Level Reached: ${level}`;
+  finalScoreElement.textContent = `${FeatureI18n.translate('finalScore')} ${score}`;
+  finalLevelElement.textContent = `${FeatureI18n.translate('levelReached')} ${level}`;
   gameOverScreen.style.display = 'flex';
 
   // Create explosion effect

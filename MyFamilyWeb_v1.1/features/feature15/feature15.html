@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Flappy Bird (episode 1)</title>
+    <title data-feature-i18n="flappyTitle">Flappy Bird</title>
     <link rel="stylesheet" href="../../css/home-link.css">
     <link rel="stylesheet" href="feature15.css">
 </head>
@@ -11,18 +11,19 @@
     <a href="../../index.html" class="home-link">Trang chủ</a>
     <div id="game-container">
         <canvas id="game-canvas" width="400" height="600"></canvas>
-        <div id="score-display">Click to Start</div>
+        <div id="score-display" data-feature-i18n="clickToStart">Click to Start</div>
         <div id="start-screen">
-            <h1>Flappy Bird</h1>
-            <p>Click or press space to flap wings</p>
-            <button id="start-button">Start Game</button>
+            <h1 data-feature-i18n="flappyTitle">Flappy Bird</h1>
+            <p data-feature-i18n="flapInstructions">Click or press space to flap wings</p>
+            <button id="start-button" data-feature-i18n="startGameLabel">Start Game</button>
         </div>
         <div id="game-over">
-            <h2>Game Over!</h2>
-            <p>Your score: <span id="final-score">0</span></p>
-            <button id="restart-button">Play Again</button>
+            <h2 data-feature-i18n="gameOver">Game Over!</h2>
+            <p><span data-feature-i18n="yourScore">Your score:</span> <span id="final-score">0</span></p>
+            <button id="restart-button" data-feature-i18n="playAgain">Play Again</button>
         </div>
     </div>
+    <script src="../../js/utils/feature-i18n.js"></script>
     <script src="feature15.js"></script>
     <script src="../../js/site-music.js"></script>
 </body>

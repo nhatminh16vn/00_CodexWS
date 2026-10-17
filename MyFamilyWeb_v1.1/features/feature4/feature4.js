@@ -49,7 +49,7 @@ async function initGame() {
         startNewRound();
     } catch (error) {
         console.error('Error loading hiragana data:', error);
-        elements.message.textContent = 'Error loading game data. Please try again.';
+        elements.message.textContent = FeatureI18n.translate('loadGameError');
     }
 }
 
@@ -120,7 +120,7 @@ function startNewRound() {
     }
     
     state.timer = setInterval(updateTimer, 100);
-    elements.message.textContent = `Find: ${state.currentCharacter.character}`;
+    elements.message.textContent = FeatureI18n.translate('findCharacter', { character: state.currentCharacter.character });
     elements.message.style.color = '#ffffff';
 }
 
@@ -153,9 +153,9 @@ function handleAnswer(e, cell) {
         if (newLevel > state.level) {
             state.level = newLevel;
             state.timeLeft = Math.max(5, config.initialTime - (state.level * config.timeDecreasePerLevel));
-            elements.message.textContent = `Level Up! Now level ${state.level}`;
+            elements.message.textContent = FeatureI18n.translate('levelUp', { n: state.level });
         } else {
-            elements.message.textContent = `Correct! +${config.baseScorePerCorrect * state.level} points`;
+            elements.message.textContent = FeatureI18n.translate('correctPoints', { n: config.baseScorePerCorrect * state.level });
         }
         
         endRound(true);
@@ -177,7 +177,7 @@ function handleAnswer(e, cell) {
             return;
         }
         
-        elements.message.textContent = 'Wrong! Try again';
+        elements.message.textContent = FeatureI18n.translate('wrongTry');
     }
 }
 
@@ -215,7 +215,7 @@ function endRound(success) {
     clearInterval(state.timer);
     
     if (!success) {
-        elements.message.textContent = `Time's up! ${config.maxMistakes - state.mistakes} mistakes left`;
+        elements.message.textContent = FeatureI18n.translate('timeUpMistakes', { n: config.maxMistakes - state.mistakes });
         
         state.cells.forEach(cell => {
             if (cell.dataset.character === state.currentCharacter.character) {
