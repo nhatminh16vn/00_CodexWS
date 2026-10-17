@@ -1,6 +1,7 @@
 *{box-sizing:border-box}
-body{margin:0;overflow:hidden;font-family:Arial;background:#60a5fa}
-canvas{display:block}
+html,body{width:100%;height:100%;margin:0;overflow:hidden}
+body{height:100vh;height:100dvh;font-family:Arial;background:#60a5fa;overscroll-behavior:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+canvas{display:block;position:fixed;inset:0;width:100%;height:100%;touch-action:none}
 #hud{position:fixed;top:8px;left:8px;right:8px;z-index:10;display:flex;gap:5px;flex-wrap:wrap}
 .box,button{background:#111c;color:#fff;border:1px solid #fff5;border-radius:10px;padding:8px;font-weight:bold}
 button{cursor:pointer}
@@ -164,12 +165,23 @@ button{cursor:pointer}
 #menu button:nth-of-type(6){background:linear-gradient(180deg,#f472b6,#9d174d);}
 #menu button:nth-of-type(7){background:linear-gradient(180deg,#94a3b8,#334155);}
 #menu button:nth-of-type(8){background:linear-gradient(180deg,#64748b,#1e293b);}
-#touch{position:fixed;bottom:10px;left:10px;right:10px;z-index:15;display:flex;justify-content:space-between}
-.touch{width:65px;height:65px;border-radius:50%;font-size:25px}
+#touch{position:fixed;bottom:calc(10px + env(safe-area-inset-bottom));left:calc(10px + env(safe-area-inset-left));right:calc(10px + env(safe-area-inset-right));z-index:15;display:flex;justify-content:space-between;pointer-events:none}
+.touch{width:65px;height:65px;border-radius:50%;font-size:25px;touch-action:none;-webkit-tap-highlight-color:transparent;pointer-events:auto}
 #hpWrap{width:120px}
 #hpBarBg{background:#4448;border-radius:6px;height:12px;overflow:hidden;margin-top:4px}
 #hpBarFill{background:#22c55e;height:100%;width:100%;transition:width .15s}
 #flash{position:fixed;inset:0;background:#ff000055;pointer-events:none;z-index:12;display:none}
 #comboPopup{position:fixed;top:60px;left:50%;transform:translateX(-50%);z-index:13;font-size:22px;font-weight:bold;color:#fff;text-shadow:0 0 6px #000;display:none;pointer-events:none;white-space:nowrap}
-#touch2{position:fixed;bottom:90px;left:10px;right:10px;z-index:15;display:flex;justify-content:flex-end;gap:8px}
-.touch2{width:55px;height:55px;border-radius:50%;font-size:18px;background:#111c;color:#fff;border:1px solid #fff5}
+#touch2{position:fixed;bottom:calc(90px + env(safe-area-inset-bottom));left:calc(10px + env(safe-area-inset-left));right:calc(10px + env(safe-area-inset-right));z-index:15;display:flex;justify-content:flex-end;gap:8px;pointer-events:none}
+.touch2{width:55px;height:55px;border-radius:50%;font-size:18px;background:#111c;color:#fff;border:1px solid #fff5;touch-action:none;-webkit-tap-highlight-color:transparent;pointer-events:auto}
+button{min-height:44px;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+
+@media(max-width:600px){
+ #hud{top:calc(6px + env(safe-area-inset-top));left:calc(6px + env(safe-area-inset-left));right:calc(6px + env(safe-area-inset-right));gap:4px}
+ .box,#hud button{padding:6px;font-size:12px}
+ #hpWrap{width:90px}
+ #touch2{gap:6px}
+ .touch2{width:50px;height:50px;font-size:17px}
+ .panel{max-height:calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom));padding:16px}
+ .grid{grid-template-columns:1fr}
+}

@@ -1885,29 +1885,32 @@ onkeyup=e=>{
    MOBILE
 ========================= */
 
-function hold(id,key){
+function hold(id,setPressed){
 
  let b=document.getElementById(id);
 
  b.onpointerdown=e=>{
   e.preventDefault();
-  window[key]=true;
+  if(b.setPointerCapture)e.target.setPointerCapture(e.pointerId);
+  setPressed(true);
  };
 
  b.onpointerup=e=>{
   e.preventDefault();
-  window[key]=false;
+  setPressed(false);
  };
 
  b.onpointercancel=()=>{
-  window[key]=false;
+  setPressed(false);
  };
+
+ b.onlostpointercapture=()=>setPressed(false);
 }
 
-hold("left","leftKey");
-hold("right","rightKey");
-hold("jump","jumpKey");
-hold("sprintBtn","sprintKey");
+hold("left",pressed=>leftKey=pressed);
+hold("right",pressed=>rightKey=pressed);
+hold("jump",pressed=>jumpKey=pressed);
+hold("sprintBtn",pressed=>sprintKey=pressed);
 
 document.getElementById("attackBtn").onpointerdown=e=>{
  e.preventDefault();

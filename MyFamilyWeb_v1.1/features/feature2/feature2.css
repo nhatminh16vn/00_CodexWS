@@ -130,3 +130,50 @@ canvas {
 body { background: radial-gradient(circle at top, #243b73, #10182f 72%); color: #f8fbff; }
 #game { border: 5px solid #7cdaff; border-radius: 18px; box-shadow: 0 0 0 8px rgba(124,218,255,.12), 0 20px 45px rgba(0,0,0,.35); background: #101a33; }
 .score { color: #fff; padding: 8px 16px; display: inline-block; border-radius: 999px; background: rgba(255,255,255,.12); }
+
+/* Responsive game board and safe areas for iPhone. */
+html, body { min-height: 100%; }
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
+    padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-user-select: none;
+    user-select: none;
+}
+h2 { color: #dff6ff; margin: 18px 0 10px; font-size: clamp(1.3rem, 5vw, 2rem); }
+.score { font-size: clamp(1rem, 4vw, 1.25rem); }
+#game-container { position: relative; width: min(92vw, 460px); margin: 14px auto 0; }
+#game {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    border: 4px solid #7cdaff;
+    border-radius: 18px;
+    box-shadow: 0 0 0 7px rgba(124,218,255,.12), 0 16px 36px rgba(0,0,0,.35);
+    background: #101a33;
+    touch-action: none;
+}
+#gameOver { width: min(300px, calc(100% - 24px)); box-sizing: border-box; }
+#mobile-controls {
+    /* Keep the down arrow clear of the fixed music player at the screen edge. */
+    bottom: calc(76px + env(safe-area-inset-bottom)) !important;
+    gap: 8px !important;
+    z-index: 2000 !important;
+}
+#mobile-controls button {
+    width: 58px !important;
+    height: 58px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 24px !important;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+@media (max-width: 380px) {
+    #game-container { width: 94vw; }
+    #mobile-controls button { width: 52px !important; height: 52px !important; }
+}

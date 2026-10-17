@@ -1,6 +1,7 @@
 // ================ Game Initialization ================
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
+const gameSize = 400;
 const scoreDisplay = document.getElementById('scoreDisplay');
 const finalScore = document.getElementById('finalScore');
 const gameOverScreen = document.getElementById('gameOver');
@@ -120,7 +121,7 @@ controlContainer.style.cssText = `
 // ================ Core Game Functions ================
 function generateFood() {
     let newFood;
-    const maxPos = Math.floor(canvas.width / box);
+    const maxPos = Math.floor(gameSize / box);
     do {
         newFood = {
             x: Math.floor(Math.random() * maxPos) * box,
@@ -132,19 +133,36 @@ function generateFood() {
 
 function draw() {
     // Clear canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, gameSize, gameSize);
+
+    ctx.strokeStyle = 'rgba(177, 220, 255, 0.08)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    for (let line = box; line < gameSize; line += box) {
+        ctx.moveTo(line, 0);
+        ctx.lineTo(line, gameSize);
+        ctx.moveTo(0, line);
+        ctx.lineTo(gameSize, line);
+    }
+    ctx.stroke();
     
     // Draw snake
     snake.forEach((segment, index) => {
-        ctx.fillStyle = index === 0 ? '#4CAF50' : '#8BC34A';
-        ctx.fillRect(segment.x, segment.y, box-1, box-1);
+        ctx.fillStyle = index === 0 ? '#a3ff75' : '#4ade80';
+        ctx.shadowColor = index === 0 ? '#86efac' : 'transparent';
+        ctx.shadowBlur = index === 0 ? 10 : 0;
+        ctx.fillRect(segment.x + 1, segment.y + 1, box - 2, box - 2);
     });
+    ctx.shadowBlur = 0;
 
     // Draw food
     ctx.fillStyle = 'red';
+    ctx.shadowColor = '#fb7185';
+    ctx.shadowBlur = 14;
     ctx.beginPath();
     ctx.arc(food.x + box/2, food.y + box/2, box/2 - 1, 0, Math.PI * 2);
     ctx.fill();
+    ctx.shadowBlur = 0;
 }
 
 function showGameOver() {
@@ -154,7 +172,7 @@ function showGameOver() {
 }
 
 function restartGame() {
-    const startPos = Math.floor((canvas.width / box) / 2) * box;
+    const startPos = Math.floor((gameSize / box) / 2) * box;
     snake = [{x: startPos, y: startPos}];
     food = generateFood();
     direction = null;
@@ -189,7 +207,7 @@ function gameLoop() {
     if (direction === 'RIGHT') head.x += box;
     
     // Collision detection
-    if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height || 
+    if (head.x < 0 || head.x >= gameSize || head.y < 0 || head.y >= gameSize ||
         snake.some(segment => segment.x === head.x && segment.y === head.y)) {
         clearInterval(gameInterval);
         showGameOver();
@@ -244,13 +262,13 @@ function debounce(func, wait) {
 function initGame() {
     // Setup responsive canvas
 function resizeCanvas() {
-    const gameContainer = document.getElementById('game-container') || document.body;
-    const containerWidth = gameContainer.clientWidth;
-    const canvasSize = Math.min(containerWidth, 300);
+    const canvasSize = gameSize;
     
-    canvas.width = canvasSize;
-    canvas.height = canvasSize;
-    box = Math.max(15, Math.floor(canvasSize / 25));
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 3);
+    canvas.width = Math.round(canvasSize * pixelRatio);
+    canvas.height = Math.round(canvasSize * pixelRatio);
+    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    box = 20;
 }
     
     // Thực hiện resize ngay lần đầu
@@ -258,6 +276,7 @@ function resizeCanvas() {
     
     // Thêm event listener với debounce
     window.addEventListener('resize', debounce(resizeCanvas, 100));
+    window.addEventListener('orientationchange', debounce(resizeCanvas, 150));
     
     // Setup mobile controls if needed
     setupMobileControls();
